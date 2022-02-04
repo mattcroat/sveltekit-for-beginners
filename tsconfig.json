@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"module": "es2020",
+		"lib": ["es2020", "DOM"],
+		"target": "es2020",
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowJs": true,
+		"checkJs": true,
+		"baseUrl": ".",
+		"paths": {
+			"$root/*": ["./src/*"]
+		}
+	},
+	"include": [
+		"src/**/*.d.ts",
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/*.svelte"
+	]
+}
