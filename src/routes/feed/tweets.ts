@@ -1,12 +1,13 @@
 import type { RequestHandler } from '@sveltejs/kit'
 
+import prisma from '$root/lib/prisma'
+
 export const get: RequestHandler = async () => {
-	const tweets = [
-		{ tweet: '🐦️' },
-		{ tweet: '🐦️' },
-		{ tweet: '🐦️' },
-		{ tweet: '🐦️' }
-	]
+	const tweets = await prisma.tweet.findMany({
+		include: {
+			user: true
+		}
+	})
 
 	if (!tweets) {
 		return {
