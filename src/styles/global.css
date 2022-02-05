@@ -1,9 +1,104 @@
+/* Setup */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--sans-serif: 'Inter', sans-serif;
+	--brand: hsl(204 88% 53%);
+	--text-primary: hsl(0 0% 98%);
+	--text-muted: hsl(210 34% 80%);
+	--background-primary: hsl(210 34% 13%);
+	--button-primary-inactive: hsl(205 70% 33%);
+	--button-primary-active: var(--brand);
+	--button-secondary: hsl(192 19% 95%);
+	--border-login: hsl(210 34% 20%);
+	--highlight: hsl(209 22% 19%);
+	--font-18: 1.8rem;
+	--font-24: 2.4rem;
+	--font-32: 3.2rem;
+	--font-80: 8rem;
+	--spacing-4: 0.4rem;
+	--spacing-8: 0.5rem;
+	--spacing-16: 1.6rem;
+	--spacing-24: 2.4rem;
+	--spacing-32: 3.2rem;
+	--radius-base: 2rem;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html,
 body {
-	font-family: sans-serif;
-	color: hsl(0, 0%, 98%);
-	background-color: hsl(220 20% 14%);
+	height: 100%;
+}
+
+body {
+	font-family: var(--sans-serif);
+	font-size: var(--font-18);
+	color: var(--text-primary);
+	background-color: var(--background-primary);
 }
 
 a {
-	color: hsl(0, 0%, 98%);
+	color: var(--text-primary);
+}
+
+label {
+	display: block;
+	margin: var(--spacing-8) 0;
+	font-size: var(--font-24);
+	color: var(--text-muted);
+}
+
+input {
+	padding: var(--spacing-16);
+	font-size: var(--font-24);
+	border-radius: var(--radius-base);
+	border: none;
+}
+
+button {
+	place-self: start;
+	margin-top: var(--spacing-16);
+	padding: var(--spacing-16) var(--spacing-32);
+	font-size: var(--font-18);
+	font-weight: bold;
+	color: var(--text-primary);
+	background-color: var(--button-primary-active);
+	border-radius: var(--radius-base);
+	border: none;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: var(--button-primary-active);
+}
+
+button:disabled {
+	color: var(--text-muted);
+	background-color: var(--button-primary-inactive);
+	cursor: not-allowed;
+}
+
+*:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--brand);
+}
+
+/* Utils */
+
+.responsive {
+	resize: both;
+	overflow: scroll;
+	border: 1px solid hsl(0 0% 0%);
 }
