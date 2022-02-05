@@ -17,16 +17,9 @@ model Tweet {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String
-  tweets  Tweet[]
-  profile Profile?
-}
-
-model Profile {
-  id     Int    @id @default(autoincrement())
+  id     Int     @id @default(autoincrement())
+  email  String  @unique
+  name   String
   about  String
-  user   User   @relation(fields: [userId], references: [id])
-  userId Int    @unique
+  tweets Tweet[]
 }
