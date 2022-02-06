@@ -144,6 +144,7 @@
 
 	.handle,
 	.posted {
+		font-size: var(--font-16);
 		color: var(--text-muted);
 	}
 

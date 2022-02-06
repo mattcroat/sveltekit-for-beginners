@@ -1,26 +1,30 @@
 <aside>
-	<div class="placeholder" />
+	<div class="container">
+		<div class="placeholder" />
 
-	<section>
-		<h2>Trends for you</h2>
-		<div class="placeholder" />
-		<div class="placeholder" />
-		<div class="placeholder" />
-		<div class="placeholder" />
-		<a href="/">Show more</a>
-	</section>
+		<section>
+			<h2>Trends for you</h2>
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<a href="/">Show more</a>
+		</section>
 
-	<section>
-		<h2>Who to follow</h2>
-		<div class="placeholder" />
-		<div class="placeholder" />
-		<a href="/">Show more</a>
-	</section>
+		<section>
+			<h2>Who to follow</h2>
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<a href="/">Show more</a>
+		</section>
+	</div>
 </aside>
 
 <style>
-	aside {
+	.container {
 		display: none;
+		position: sticky;
+		top: 0;
 	}
 
 	section {
@@ -43,7 +47,7 @@
 	}
 
 	@media (min-width: 1024px) {
-		aside {
+		.container {
 			width: 400px;
 			display: flex;
 			flex-direction: column;
