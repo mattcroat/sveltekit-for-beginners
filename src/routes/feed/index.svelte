@@ -1,3 +1,4 @@
+<!--
 <script lang="ts" context="module">
 	import type { Load } from '@sveltejs/kit'
 
@@ -19,9 +20,9 @@
 		}
 	}
 </script>
-
+-->
 <script lang="ts">
-	export let tweets: any
+	export let tweets = []
 </script>
 
 <h1>Tweets</h1>

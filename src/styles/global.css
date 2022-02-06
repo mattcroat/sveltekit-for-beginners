@@ -16,11 +16,15 @@
 	--text-primary: hsl(0 0% 98%);
 	--text-muted: hsl(210 34% 80%);
 	--background-primary: hsl(210 34% 13%);
+	--background-secondary: hsl(209, 35%, 15%);
 	--button-primary-inactive: hsl(205 70% 33%);
 	--button-primary-active: var(--brand);
 	--button-secondary: hsl(192 19% 95%);
 	--border-login: hsl(210 34% 20%);
-	--highlight: hsl(209 22% 19%);
+	--border-primary: hsl(0, 0%, 34%);
+	--link-hover: hsl(209 22% 19%);
+	--placeholder: hsl(210 34% 80%);
+	--font-16: 1.6rem;
 	--font-18: 1.8rem;
 	--font-24: 2.4rem;
 	--font-32: 3.2rem;
@@ -28,9 +32,10 @@
 	--spacing-4: 0.4rem;
 	--spacing-8: 0.5rem;
 	--spacing-16: 1.6rem;
+	--spacing-20: 2rem;
 	--spacing-24: 2.4rem;
 	--spacing-32: 3.2rem;
-	--radius-base: 2rem;
+	--radius-base: 2.4rem;
 }
 
 html {
@@ -50,6 +55,7 @@ body {
 }
 
 a {
+	text-decoration: none;
 	color: var(--text-primary);
 }
 
@@ -68,8 +74,8 @@ input {
 }
 
 button {
-	place-self: start;
-	margin-top: var(--spacing-16);
+	/* place-self: start;
+	margin-top: var(--spacing-16); */
 	padding: var(--spacing-16) var(--spacing-32);
 	font-size: var(--font-18);
 	font-weight: bold;
@@ -90,6 +96,11 @@ button:disabled {
 	cursor: not-allowed;
 }
 
+ul,
+ol {
+	list-style: none;
+}
+
 *:focus {
 	outline: none;
 	box-shadow: 0 0 0 3px var(--brand);
@@ -101,4 +112,10 @@ button:disabled {
 	resize: both;
 	overflow: scroll;
 	border: 1px solid hsl(0 0% 0%);
+}
+
+.placeholder {
+	padding: var(--spacing-20) 0;
+	background-color: var(--placeholder);
+	border-radius: var(--radius-base);
 }
