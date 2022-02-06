@@ -114,7 +114,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: var(--spacing-16);
-		padding: var(--spacing-16) var(--spacing-16);
+		padding: 1.4rem;
 		border-radius: var(--radius-base);
 		transition: all 0.2s ease;
 	}
