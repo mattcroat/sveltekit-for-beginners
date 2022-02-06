@@ -45,13 +45,15 @@
 		</div>
 
 		<div class="tweet">
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing
-				elit. Inventore, animi aliquid. Inventore nulla quos
-				impedit voluptas obcaecati dolor mollitia, dolores
-				architecto, minus deleniti provident dignissimos
-				quae tenetur, aliquam animi facere.
-			</p>
+			<div class="content">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing
+					elit. Inventore, animi aliquid. Inventore nulla
+					quos impedit voluptas obcaecati dolor mollitia,
+					dolores architecto, minus deleniti provident
+					dignissimos quae tenetur, aliquam animi facere.
+				</p>
+			</div>
 			<div class="actions">
 				<button class="like">
 					<svg
@@ -143,6 +145,10 @@
 	.handle,
 	.posted {
 		color: var(--text-muted);
+	}
+
+	.content {
+		font-size: var(--font-16);
 	}
 
 	.actions {
