@@ -38,6 +38,25 @@
 	--radius-base: 2.4rem;
 }
 
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--brand);
+	border-radius: var(--radius-base);
+}
+
+*:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--brand);
+}
+
 html {
 	font-size: 62.5%;
 }
@@ -74,8 +93,6 @@ input {
 }
 
 button {
-	/* place-self: start;
-	margin-top: var(--spacing-16); */
 	padding: var(--spacing-16) var(--spacing-32);
 	font-size: var(--font-18);
 	font-weight: bold;
@@ -99,11 +116,6 @@ button:disabled {
 ul,
 ol {
 	list-style: none;
-}
-
-*:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px var(--brand);
 }
 
 /* Utils */

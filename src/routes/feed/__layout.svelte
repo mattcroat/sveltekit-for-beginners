@@ -14,7 +14,7 @@
 <style>
 	.container {
 		height: 100vh;
-		width: min-content;
+		max-width: min-content;
 		margin: 0 auto;
 		display: grid;
 		grid-template-columns: min-content 50ch;
