@@ -1,26 +1,29 @@
-<a href="/tweet" class="permalink">
+<script lang="ts">
+	import { timePosted } from '$root/utils/format'
+
+	export let tweet
+</script>
+
+<a href={tweet.id} class="permalink">
 	<article class="tweet-container">
-		<a href="/profile">
+		<a class="avatar" href={tweet.user.name.toLowerCase()}>
 			<img src="avatar.png" alt="Avatar" />
 		</a>
 
 		<div class="tweet-details">
 			<div>
-				<a href="/profile" class="user">Matia</a>
-				<span class="handle">@joyofcodedev</span>
-				<span class="posted">· 20m</span>
+				<a href={tweet.user.name.toLowerCase()} class="user"
+					>{tweet.user.name}</a
+				>
+				<span class="handle">{tweet.user.handle}</span>
+				<span class="posted">
+					· {timePosted(tweet.createdAt)}
+				</span>
 			</div>
 
 			<div class="tweet">
 				<div class="content">
-					<p>
-						Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Inventore, animi aliquid.
-						Inventore nulla quos impedit voluptas obcaecati
-						dolor mollitia, dolores architecto, minus
-						deleniti provident dignissimos quae tenetur,
-						aliquam animi facere.
-					</p>
+					{tweet.content}
 				</div>
 				<div class="actions">
 					<button class="like" title="Like">
@@ -39,7 +42,7 @@
 								/>
 							</svg>
 						</div>
-						<span class="count">24</span>
+						<span class="count">{tweet.likes}</span>
 					</button>
 					<button class="share" title="Share">
 						<div class="circle">
@@ -65,6 +68,10 @@
 </a>
 
 <style>
+	.avatar {
+		align-self: start;
+	}
+
 	img {
 		width: 64px;
 		height: 64px;

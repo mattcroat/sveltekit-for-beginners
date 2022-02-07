@@ -1,13 +1,15 @@
 <div class="compose">
 	<img src="avatar.png" alt="Avatar" />
-	<input placeholder="What's happening?" type="text" />
-	<button disabled>Tweet</button>
+	<form on:submit|preventDefault>
+		<input placeholder="What's happening?" type="text" />
+		<button disabled>Tweet</button>
+	</form>
 </div>
 
 <style>
 	.compose {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: min-content 1fr;
 		align-items: center;
 		gap: var(--spacing-16);
 		padding: var(--spacing-16) var(--spacing-24);

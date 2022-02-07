@@ -52,11 +52,6 @@
 	border-radius: var(--radius-base);
 }
 
-*:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px var(--brand);
-}
-
 html {
 	font-size: 62.5%;
 }
