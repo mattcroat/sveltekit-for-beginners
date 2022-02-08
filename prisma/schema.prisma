@@ -8,8 +8,9 @@ datasource db {
 }
 
 model Tweet {
-  id        String   @id @default(uuid())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
+  tweetId   String
   content   String
   likes     Int
   user      User     @relation(fields: [userId], references: [id])
@@ -17,10 +18,17 @@ model Tweet {
 }
 
 model User {
-  id     Int     @id @default(autoincrement())
-  email  String  @unique
-  name   String
-  handle String
-  about  String
-  tweets Tweet[]
+  id          Int           @id @default(autoincrement())
+  email       String        @unique
+  name        String
+  handle      String
+  about       String
+  tweets      Tweet[]
+  likedTweets LikedTweets[]
+}
+
+model LikedTweets {
+  id      Int    @id @default(autoincrement())
+  tweetId String
+  user    User   @relation(fields: [id], references: [id])
 }

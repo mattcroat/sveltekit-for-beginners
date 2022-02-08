@@ -7,11 +7,17 @@ export function timePosted(createdAt: Date): string {
 		const minutes = seconds / 60
 		const hours = minutes / 60
 
+		if (minutes <= 60) {
+			return `${minutes.toFixed()}m`
+		}
+
 		if (minutes >= 60) {
 			return `${hours.toFixed()}h`
 		}
 
-		return `${minutes.toFixed()}m`
+		return Intl.DateTimeFormat('en-US', {
+			dateStyle: 'medium'
+		}).format(posted)
 	} catch (error) {
 		throw new Error(`💩 Something went wrong: ${error}`)
 	}
