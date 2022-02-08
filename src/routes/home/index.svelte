@@ -2,8 +2,6 @@
 	import type { Load } from '@sveltejs/kit'
 
 	export const load: Load = async ({ fetch }) => {
-		// todo: fallback
-		// todo: types
 		let response = await fetch('/api/tweets')
 		let { tweets } = await response.json()
 
@@ -22,7 +20,7 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
 
@@ -36,11 +34,6 @@
 {#each tweets as tweet (tweet.id)}
 	<Tweet {tweet} />
 {/each}
-
-<!-- todo: remove debug -->
-<pre>
-	{JSON.stringify(tweets, null, 2)}
-</pre>
 
 <style>
 	h1 {

@@ -10,6 +10,7 @@ datasource db {
 model Tweet {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
+  posted    DateTime
   tweetId   String
   content   String
   likes     Int
@@ -20,6 +21,7 @@ model Tweet {
 model User {
   id          Int           @id @default(autoincrement())
   email       String        @unique
+  avatar      String
   name        String
   handle      String
   about       String

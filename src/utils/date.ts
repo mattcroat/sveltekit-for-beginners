@@ -11,7 +11,7 @@ export function timePosted(createdAt: Date): string {
 			return `${minutes.toFixed()}m`
 		}
 
-		if (minutes >= 60) {
+		if (hours <= 24) {
 			return `${hours.toFixed()}h`
 		}
 

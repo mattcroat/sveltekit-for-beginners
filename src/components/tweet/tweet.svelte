@@ -1,13 +1,18 @@
 <script lang="ts">
-	import { timePosted } from '$root/utils/format'
+	import { timePosted } from '$root/utils/date'
 
 	export let tweet
 </script>
 
-<a href={tweet.id} class="permalink">
+<a
+	href={`${tweet.user.name.toLowerCase()}/status/${
+		tweet.tweetId
+	}`}
+	class="permalink"
+>
 	<article class="tweet-container">
 		<a class="avatar" href={tweet.user.name.toLowerCase()}>
-			<img src="avatar.png" alt="Avatar" />
+			<img src={tweet.user.avatar} alt={tweet.user.name} />
 		</a>
 
 		<div class="tweet-details">
@@ -17,7 +22,7 @@
 				>
 				<span class="handle">{tweet.user.handle}</span>
 				<span class="posted">
-					· {timePosted(tweet.createdAt)}
+					· {timePosted(tweet.posted)}
 				</span>
 			</div>
 

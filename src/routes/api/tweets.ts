@@ -6,6 +6,9 @@ export const get: RequestHandler = async () => {
 	const tweets = await prisma.tweet.findMany({
 		include: {
 			user: true
+		},
+		orderBy: {
+			posted: 'desc'
 		}
 	})
 
