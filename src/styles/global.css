@@ -17,8 +17,9 @@
 	--text-muted: hsl(210 34% 80%);
 	--background-primary: hsl(210 34% 13%);
 	--background-secondary: hsl(209, 35%, 15%);
-	--button-primary-inactive: hsl(205 70% 33%);
 	--button-primary-active: var(--brand);
+	--button-primary-active-hover: hsl(204 88% 60%);
+	--button-primary-inactive: hsl(205 70% 33%);
 	--button-secondary: hsl(192 19% 95%);
 	--border-login: hsl(210 34% 20%);
 	--border-primary: hsl(0, 0%, 34%);

@@ -1,7 +1,10 @@
 <div class="compose">
-	<img src="avatar.png" alt="Avatar" />
+	<img
+		src="https://i.pravatar.cc/200?img=65"
+		alt="Avatar"
+	/>
 	<form on:submit|preventDefault>
-		<input placeholder="What's happening?" type="text" />
+		<input placeholder="What's up dog?" type="text" />
 		<button disabled>Tweet</button>
 	</form>
 </div>
@@ -17,8 +20,8 @@
 	}
 
 	img {
-		width: 64px;
-		height: 64px;
+		width: 48px;
+		height: 48px;
 		border-radius: 50%;
 	}
 

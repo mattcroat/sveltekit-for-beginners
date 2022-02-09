@@ -3,18 +3,17 @@
 
 	export const load: Load = async ({ fetch }) => {
 		let response = await fetch('/api/tweets')
-		let { tweets } = await response.json()
 
 		if (!response.ok) {
 			return {
 				status: response.status,
-				error: new Error(`Could not load Tweets.`)
+				error: new Error(`Could not load Tweets. 🐦️`)
 			}
 		}
 
 		return {
 			props: {
-				tweets
+				tweets: (await response.json()).tweets
 			}
 		}
 	}

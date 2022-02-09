@@ -78,8 +78,8 @@
 	}
 
 	img {
-		width: 64px;
-		height: 64px;
+		width: 48px;
+		height: 48px;
 		border-radius: 50%;
 	}
 

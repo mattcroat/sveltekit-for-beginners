@@ -24,7 +24,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="/profile">
+					<a href="/ronnie">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -42,7 +42,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="/profile">
+					<a href="/settings">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -130,6 +130,10 @@
 
 	.tweet {
 		display: none;
+	}
+
+	.tweet:hover {
+		background-color: var(--button-primary-active-hover);
 	}
 
 	@media (min-width: 1024px) {
