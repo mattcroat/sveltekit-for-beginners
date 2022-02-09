@@ -1,0 +1,40 @@
+<script lang="ts" context="module">
+	import type { ErrorLoad } from '@sveltejs/kit'
+
+	export const load: ErrorLoad = ({ error, status }) => {
+		return {
+			props: {
+				title: `${status}: ${error.message}`
+			}
+		}
+	}
+</script>
+
+<script lang="ts">
+	export let title: string
+</script>
+
+<div class="error">
+	<h1>{title}</h1>
+
+	<img
+		src="https://media.giphy.com/media/olAik8MhYOB9K/giphy.gif"
+		alt="Rick Astley dancing"
+	/>
+</div>
+
+<style>
+	.error {
+		display: grid;
+		gap: var(--spacing-32);
+		padding: var(--spacing-24) var(--spacing-32);
+		place-items: center;
+	}
+
+	img {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+</style>
