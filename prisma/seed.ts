@@ -8,6 +8,9 @@ export function uniqueId(): string {
 	return Math.random().toString(16).slice(2)
 }
 
+// gets random time starting from now and
+// going back one day whenever you seed the
+// database in the future
 export function randomDate(): string {
 	// this is set to one day
 	const offset = 24 * 60 * 60 * 1000 * 1
@@ -19,12 +22,12 @@ export function randomDate(): string {
 	return difference.toISOString()
 }
 
-async function seed() {
-	await prisma.user.create({
-		data: {
-			name: 'Matia',
-			handle: '@joyofcodedev',
-			email: 'matia@example.test',
+function getUsers() {
+	return [
+		{
+			name: 'Ronnie',
+			handle: '@theronald',
+			email: 'theronald@example.test',
 			avatar: 'https://i.pravatar.cc/200?img=65',
 			about: 'Likes long walks on the beach. 😘',
 			tweets: {
@@ -32,69 +35,76 @@ async function seed() {
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'SvelteKit is lit 🔥',
+						content: `SvelteKit is lit. 🔥`,
 						likes: 10
 					},
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'I love Svelte ❤️',
-						likes: 4
+						content: `I love Svelte! ❤️`,
+						likes: 24
 					},
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'Stuck in Vim 😱',
-						likes: 100
+						content: `Sometimes when I'm writing JavaScript I want to throw up my hands and say "this is crazy!" but I can't remember what "this" refers to. 🤪`,
+						likes: 0
 					},
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'Hello, World! 👋',
+						content: `How do you comfort a JavaScript bug? You console it. 🤭`,
 						likes: 0
 					}
 				]
 			}
-		}
-	})
-
-	await prisma.user.create({
-		data: {
-			name: 'Example',
-			handle: '@example',
-			email: 'example@example.test',
-			avatar: 'https://i.pravatar.cc/200?img=31',
-			about: 'Likes examples. 😘',
+		},
+		{
+			name: 'Ros',
+			handle: '@ros',
+			email: 'ros@example.test',
+			avatar: 'https://i.pravatar.cc/200?img=38',
+			about: 'Likes painting.',
 			tweets: {
 				create: [
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'Example 🔥',
+						content: `Use your imagination. Wind it up, blend it together. The joy of painting really is universal.`,
 						likes: 1
 					},
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'Another tweet 🐦️',
+						content: `The only thing I have control over is taking out the trash. 😂`,
 						likes: 4
 					},
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'Let me share a poem. ✍️',
+						content:
+							'Painting is as individual as people are. 👩‍🎨',
 						likes: 0
 					},
 					{
 						tweetId: uniqueId(),
 						posted: randomDate(),
-						content: 'What is updog? 🐕️',
+						content:
+							'All we do is just sorta have an idea in our mind, and we just sorta let it happen. 🌈',
 						likes: 10
 					}
 				]
 			}
 		}
-	})
+	]
+}
+
+async function seed() {
+	await Promise.all(
+		getUsers().map((user) => {
+			return prisma.user.create({ data: user })
+		})
+	)
 }
 
 seed()
