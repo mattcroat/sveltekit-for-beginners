@@ -1,6 +1,8 @@
 <script lang="ts" context="module">
 	import type { Load } from '@sveltejs/kit'
 
+	// adding types here is a lie because
+	// you can't guarantee what's returned
 	export const load: Load = async ({ fetch }) => {
 		let response = await fetch('/api/tweets')
 
@@ -11,9 +13,11 @@
 			}
 		}
 
+		const { tweets } = await response.json()
+
 		return {
 			props: {
-				tweets: (await response.json()).tweets
+				tweets
 			}
 		}
 	}
@@ -22,8 +26,9 @@
 <script lang="ts">
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
+	import type { TweetType } from '$root/types/tweet'
 
-	export let tweets = []
+	export let tweets: TweetType[] = []
 </script>
 
 <h1>Feed</h1>

@@ -1,29 +1,25 @@
 <script lang="ts">
 	import { timePosted } from '$root/utils/date'
+	import type { TweetType } from '$root/types/tweet'
 
-	export let tweet
+	export let tweet: TweetType
+
+	const profile = tweet.user.name.toLowerCase()
+	const permalink = `${profile}/status/${tweet.tweetId}`
+	const posted = timePosted(tweet.posted)
 </script>
 
-<a
-	href={`${tweet.user.name.toLowerCase()}/status/${
-		tweet.tweetId
-	}`}
-	class="permalink"
->
+<a href={permalink} class="permalink">
 	<article class="tweet-container">
-		<a class="avatar" href={tweet.user.name.toLowerCase()}>
+		<a class="avatar" href={profile}>
 			<img src={tweet.user.avatar} alt={tweet.user.name} />
 		</a>
 
 		<div class="tweet-details">
 			<div>
-				<a href={tweet.user.name.toLowerCase()} class="user"
-					>{tweet.user.name}</a
-				>
+				<a href={profile} class="user">{tweet.user.name}</a>
 				<span class="handle">{tweet.user.handle}</span>
-				<span class="posted">
-					· {timePosted(tweet.posted)}
-				</span>
+				<span class="posted"> · {posted}</span>
 			</div>
 
 			<div class="tweet">
