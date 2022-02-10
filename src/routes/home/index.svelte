@@ -3,6 +3,7 @@
 
 	// adding types here is a lie because
 	// you can't guarantee what's returned
+	// use a schema validation library
 	export const load: Load = async ({ fetch }) => {
 		let response = await fetch('/api/tweets')
 

@@ -1,11 +1,66 @@
+<script lang="ts">
+	let tweet = ''
+	let maxCharacters = 140
+
+	$: charactersLeft = maxCharacters - tweet.length
+
+	// it's wiser to use a schema validation library
+	// such as https://github.com/colinhacks/zod
+	function isNotOverCharacterLimit(value: string): boolean {
+		const characterLimit = 140
+		return value.length < characterLimit
+	}
+
+	async function handleSubmit(event: SubmitEvent) {
+		let form = event.target as HTMLFormElement
+		const formData = new FormData(form)
+		const content = formData.get('tweet') as string
+
+		if (!isNotOverCharacterLimit(content)) {
+			// we could have error handling here
+			// inside an error object and output
+			return
+		}
+
+		const submit = await fetch('/api/tweets', {
+			method: 'post',
+			body: JSON.stringify({ tweet: content }),
+			headers: { 'content-type': 'application/json' }
+		})
+		// const response = await submit.json()
+
+		tweet = ''
+	}
+</script>
+
 <div class="compose">
 	<img
 		src="https://i.pravatar.cc/200?img=65"
-		alt="Avatar"
+		alt="Ronnie"
 	/>
-	<form on:submit|preventDefault>
-		<input placeholder="What's up dog?" type="text" />
-		<button disabled>Tweet</button>
+	<form on:submit|preventDefault={handleSubmit}>
+		<!-- <form method="post" action="/api/tweets"> -->
+		<!--
+			name attribute is important if you want to
+			get values using formData
+		-->
+		<input
+			aria-label="Enter your Tweet"
+			bind:value={tweet}
+			name="tweet"
+			placeholder="What's up dog?"
+			type="text"
+		/>
+		<button
+			class:error={charactersLeft < 0}
+			disabled={charactersLeft <= 0 ||
+				charactersLeft === maxCharacters}
+			type="submit"
+		>
+			{charactersLeft === maxCharacters
+				? 'Tweet'
+				: charactersLeft}
+		</button>
 	</form>
 </div>
 
@@ -25,13 +80,24 @@
 		border-radius: 50%;
 	}
 
+	form {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-16);
+	}
+
 	input {
 		color: var(--text-primary);
 		background-color: transparent;
 	}
 
 	button {
+		min-width: 80px;
 		font-size: var(--font-16);
 		padding: var(--spacing-16);
+	}
+
+	.error {
+		color: tomato;
 	}
 </style>

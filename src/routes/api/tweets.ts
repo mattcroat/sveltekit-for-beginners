@@ -26,3 +26,14 @@ export const get: RequestHandler = async () => {
 		body: { tweets }
 	}
 }
+
+export const post: RequestHandler = async ({ request }) => {
+	// receive form data using standard form
+	// const data = await request.formData()
+
+	return {
+		body: {
+			success: true
+		}
+	}
+}
