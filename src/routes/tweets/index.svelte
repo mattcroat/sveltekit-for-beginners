@@ -1,11 +1,12 @@
 <script lang="ts" context="module">
 	import type { Load } from '@sveltejs/kit'
+	import type { UserTweetType } from '$root/types/tweet'
 
 	// adding types here is a lie because
 	// you can't guarantee what's returned
 	// use a schema validation library
 	export const load: Load = async ({ fetch }) => {
-		let response = await fetch('/api/tweets')
+		const response = await fetch('/api/tweets')
 
 		if (!response.ok) {
 			return {
@@ -18,7 +19,7 @@
 
 		return {
 			props: {
-				tweets
+				userTweets: tweets
 			}
 		}
 	}
@@ -27,16 +28,26 @@
 <script lang="ts">
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
-	import type { TweetType } from '$root/types/tweet'
 
-	export let tweets: TweetType[] = []
+	export let userTweets: UserTweetType[] = []
+
+	async function addTweet(tweet: string) {
+		await fetch('/api/tweets', {
+			method: 'POST',
+			body: JSON.stringify({ tweet }),
+			headers: { 'Content-Type': 'application/json' }
+		})
+		const response = await fetch('/api/tweets')
+		const { tweets } = await response.json()
+		userTweets = tweets
+	}
 </script>
 
 <h1>Feed</h1>
 
-<Compose />
+<Compose {addTweet} />
 
-{#each tweets as tweet (tweet.id)}
+{#each userTweets as tweet (tweet.id)}
 	<Tweet {tweet} />
 {/each}
 

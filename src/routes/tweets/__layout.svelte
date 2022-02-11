@@ -1,14 +1,14 @@
 <script lang="ts">
-	import LeftSidebar from '$root/components/sidebar/left-sidebar.svelte'
-	import RightSidebar from '$root/components/sidebar/right-sidebar.svelte'
+	import Navigation from '$root/components/sidebar/navigation.svelte'
+	import Trending from '$root/components/sidebar/trending.svelte'
 </script>
 
 <div class="container">
-	<LeftSidebar />
+	<Navigation />
 	<main class="feed">
 		<slot />
 	</main>
-	<RightSidebar />
+	<Trending />
 </div>
 
 <style>

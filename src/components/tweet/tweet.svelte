@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { timePosted } from '$root/utils/date'
-	import type { TweetType } from '$root/types/tweet'
+	import type { UserTweetType } from '$root/types/tweet'
 
-	export let tweet: TweetType
+	export let tweet: UserTweetType
 
 	const profile = tweet.user.name.toLowerCase()
 	const permalink = `${profile}/status/${tweet.tweetId}`

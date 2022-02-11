@@ -1,3 +1,3 @@
 import type { Tweet, User } from '@prisma/client'
 
-export type TweetType = Tweet & { user: User }
+export type UserTweetType = Tweet & { user: User }

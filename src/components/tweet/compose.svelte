@@ -1,4 +1,6 @@
 <script lang="ts">
+	export let addTweet: (tweet: string) => void
+
 	let tweet = ''
 	let maxCharacters = 140
 
@@ -18,17 +20,10 @@
 
 		if (!isNotOverCharacterLimit(content)) {
 			// we could have error handling here
-			// inside an error object and output
 			return
 		}
 
-		const submit = await fetch('/api/tweets', {
-			method: 'post',
-			body: JSON.stringify({ tweet: content }),
-			headers: { 'content-type': 'application/json' }
-		})
-		// const response = await submit.json()
-
+		addTweet(tweet)
 		tweet = ''
 	}
 </script>
@@ -38,11 +33,13 @@
 		src="https://i.pravatar.cc/200?img=65"
 		alt="Ronnie"
 	/>
-	<form on:submit|preventDefault={handleSubmit}>
-		<!-- <form method="post" action="/api/tweets"> -->
+	<form
+		on:submit|preventDefault={handleSubmit}
+		autocomplete="off"
+	>
 		<!--
 			name attribute is important if you want to
-			get values using formData
+			get values using formData later
 		-->
 		<input
 			aria-label="Enter your Tweet"
