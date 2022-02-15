@@ -9,9 +9,7 @@ export const get: RequestHandler = async () => {
 	})
 
 	if (!tweets) {
-		return {
-			status: 400
-		}
+		return { status: 400 }
 	}
 
 	return {
@@ -43,13 +41,21 @@ export const post: RequestHandler = async ({ request }) => {
 			url: Math.random().toString(16).slice(2),
 			content: tweet,
 			likes: 0,
-			user: { connect: { id: 1 } } // ronnie 😍
+			user: { connect: { id: 1 } } // ronald 😍
 		}
 	})
 
 	return {
-		body: {
-			tweet
-		}
+		body: { tweet }
+	}
+}
+
+export const del: RequestHandler = async ({ request }) => {
+	const { id } = await request.json()
+	await prisma.tweet.delete({ where: { id } })
+
+	return {
+		status: 200,
+		body: id
 	}
 }

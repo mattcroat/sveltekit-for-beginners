@@ -18,9 +18,7 @@
 		const { tweets } = await response.json()
 
 		return {
-			props: {
-				userTweets: tweets
-			}
+			props: { userTweets: tweets }
 		}
 	}
 </script>
@@ -43,12 +41,14 @@
 	}
 
 	async function removeTweet(id: string) {
-		console.log(`Remove ${id}`)
-		// await fetch('/api/tweets', {
-		// 	method: 'DELETE',
-		// 	body: JSON.stringify({ id }),
-		// 	headers: { 'Content-Type': 'application/json' }
-		// })
+		await fetch('/api/tweets', {
+			method: 'DELETE',
+			body: JSON.stringify({ id }),
+			headers: { 'Content-Type': 'application/json' }
+		})
+		const response = await fetch('/api/tweets')
+		const { tweets } = await response.json()
+		userTweets = tweets
 	}
 </script>
 

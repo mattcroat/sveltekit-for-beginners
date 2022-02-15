@@ -64,7 +64,8 @@
 						</div>
 					</button>
 					<button
-						on:click={() => removeTweet(tweet.url)}
+						on:click|preventDefault={() =>
+							removeTweet(tweet.id)}
 						class="remove"
 						title="Remove"
 					>
