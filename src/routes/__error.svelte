@@ -18,7 +18,7 @@
 <div class="error">
 	<h1>{title}</h1>
 	<img
-		src="https://media.giphy.com/media/9S706ievhjXVfG9s9Q/giphy.gif"
+		src="/error.webp"
 		alt="Cat looking at a plushie of itself"
 	/>
 </div>
