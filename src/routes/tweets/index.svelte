@@ -41,6 +41,15 @@
 		const { tweets } = await response.json()
 		userTweets = tweets
 	}
+
+	async function removeTweet(id: string) {
+		console.log(`Remove ${id}`)
+		// await fetch('/api/tweets', {
+		// 	method: 'DELETE',
+		// 	body: JSON.stringify({ id }),
+		// 	headers: { 'Content-Type': 'application/json' }
+		// })
+	}
 </script>
 
 <h1>Feed</h1>
@@ -48,7 +57,7 @@
 <Compose {addTweet} />
 
 {#each userTweets as tweet (tweet.id)}
-	<Tweet {tweet} />
+	<Tweet {tweet} {removeTweet} />
 {/each}
 
 <style>

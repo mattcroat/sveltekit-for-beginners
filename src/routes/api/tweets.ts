@@ -40,7 +40,7 @@ export const post: RequestHandler = async ({ request }) => {
 	await prisma.tweet.create({
 		data: {
 			posted: new Date(),
-			tweetId: Math.random().toString(16).slice(2),
+			url: Math.random().toString(16).slice(2),
 			content: tweet,
 			likes: 0,
 			user: { connect: { id: 1 } } // ronnie 😍

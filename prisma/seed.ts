@@ -4,7 +4,7 @@ import PrismaClientPkg from '@prisma/client'
 const PrismaClient = PrismaClientPkg.PrismaClient
 const prisma = new PrismaClient()
 
-export function uniqueId(): string {
+export function randomUrl(): string {
 	return Math.random().toString(16).slice(2)
 }
 
@@ -25,33 +25,33 @@ export function randomDate(): string {
 function getUsers() {
 	return [
 		{
-			name: 'Ronnie',
+			name: 'Ronald',
 			handle: '@theronald',
-			email: 'theronald@example.test',
+			email: 'ronald@example.test',
 			avatar: 'https://i.pravatar.cc/200?img=65',
 			about: 'Likes long walks on the beach. 😘',
 			tweets: {
 				create: [
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content: `SvelteKit is lit. 🔥`,
 						likes: 10
 					},
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content: `I love Svelte! ❤️`,
 						likes: 24
 					},
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content: `Sometimes when I'm writing JavaScript I want to throw up my hands and say "this is crazy!" but I can't remember what "this" refers to. 🤪`,
 						likes: 0
 					},
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content: `How do you comfort a JavaScript bug? You console it. 🤭`,
 						likes: 0
@@ -68,26 +68,26 @@ function getUsers() {
 			tweets: {
 				create: [
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content: `Use your imagination. Wind it up, blend it together. The joy of painting really is universal.`,
 						likes: 1
 					},
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content: `The only thing I have control over is taking out the trash. 😂`,
 						likes: 4
 					},
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content:
 							'Painting is as individual as people are. 👩‍🎨',
 						likes: 0
 					},
 					{
-						tweetId: uniqueId(),
+						url: randomUrl(),
 						posted: randomDate(),
 						content:
 							'All we do is just sorta have an idea in our mind, and we just sorta let it happen. 🌈',
