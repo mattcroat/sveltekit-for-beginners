@@ -1,3 +1,9 @@
+<script lang="ts">
+	import { page } from '$app/stores'
+
+	const path = $page.url.pathname
+</script>
+
 <aside>
 	<div class="container">
 		<nav>
@@ -5,8 +11,8 @@
 				<li>
 					<a href="/" class="logo">🐦️</a>
 				</li>
-				<li>
-					<a href="/">
+				<li class:active={path === '/tweets'}>
+					<a href="/tweets">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -23,7 +29,7 @@
 						<span>Home</span>
 					</a>
 				</li>
-				<li>
+				<li class:active={path === '/ronald'}>
 					<a href="/ronald">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +47,7 @@
 						<span>Profile</span>
 					</a>
 				</li>
-				<li>
+				<li class:active={path === '/settings'}>
 					<a href="/settings">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +71,7 @@
 						<span>Settings</span>
 					</a>
 				</li>
-				<li>
+				<li class:active={path === '/about'}>
 					<a href="/about">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -113,6 +119,10 @@
 
 	li a:hover {
 		background-color: var(--link-hover);
+	}
+
+	li.active {
+		font-weight: 700;
 	}
 
 	.logo {
