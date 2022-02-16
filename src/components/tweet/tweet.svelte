@@ -5,7 +5,7 @@
 	export let tweet: UserTweetType
 	export let removeTweet: (id: string) => void
 
-	const profile = tweet.user.name.toLowerCase()
+	const profile = `/home/profile/${tweet.user.name.toLowerCase()}`
 	const permalink = `${profile}/status/${tweet.url}`
 	const posted = timePosted(tweet.posted)
 </script>
