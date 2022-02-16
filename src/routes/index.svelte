@@ -5,23 +5,7 @@
 	</section>
 
 	<section class="login">
-		<form
-			on:submit|preventDefault
-			class="register"
-			autocomplete="off"
-		>
-			<div>
-				<label for="username">Username</label>
-				<input id="username" type="text" />
-			</div>
-
-			<div>
-				<label for="id">Email</label>
-				<input id="email" type="email" />
-			</div>
-
-			<button type="submit" disabled>Register</button>
-		</form>
+		<a class="btn" href="/tweets">🔥 Share Your Hot Take</a>
 	</section>
 </main>
 
@@ -60,13 +44,5 @@
 		font-weight: bold;
 		font-size: var(--font-24);
 		z-index: 1;
-	}
-
-	.register {
-		display: grid;
-		gap: var(--spacing-16);
-		padding: 4rem;
-		border: 1px solid var(--border-login);
-		border-radius: var(--radius-base);
 	}
 </style>
