@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { timePosted } from '$root/utils/date'
-	import type { UserTweetType } from '$root/types/tweet'
+	import type { TweetType } from '$root/types'
 
-	export let tweet: UserTweetType
+	export let tweet: TweetType
 	export let removeTweet: (id: string) => void
 
 	const profile = `/home/profile/${tweet.user.name.toLowerCase()}`
