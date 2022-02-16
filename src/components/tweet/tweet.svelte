@@ -28,7 +28,7 @@
 					{tweet.content}
 				</div>
 				<div class="actions">
-					<button class="like" title="Like">
+					<button class="btn like" title="Like">
 						<div class="circle">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@
 						</div>
 						<span class="count">{tweet.likes}</span>
 					</button>
-					<button class="share" title="Share">
+					<button class="btn share" title="Share">
 						<div class="circle">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@
 					<button
 						on:click|preventDefault={() =>
 							removeTweet(tweet.id)}
-						class="remove"
+						class="btn remove"
 						title="Remove"
 					>
 						<div class="circle">

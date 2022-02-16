@@ -49,6 +49,7 @@
 			type="text"
 		/>
 		<button
+			class="btn"
 			class:error={charactersLeft < 0}
 			disabled={charactersLeft <= 0 ||
 				charactersLeft === maxCharacters}

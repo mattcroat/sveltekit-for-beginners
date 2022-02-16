@@ -6,7 +6,7 @@
 					<a href="/" class="logo">🐦️</a>
 				</li>
 				<li>
-					<a href="/home">
+					<a href="/">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -24,7 +24,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="/ronnie">
+					<a href="/ronald">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -86,7 +86,7 @@
 			</ul>
 		</nav>
 
-		<button class="tweet">Tweet</button>
+		<button class="btn tweet">Tweet</button>
 	</div>
 </aside>
 
@@ -102,15 +102,7 @@
 		font-size: var(--font-18);
 	}
 
-	.logo {
-		font-size: var(--font-32);
-	}
-
-	span {
-		display: none;
-	}
-
-	a {
+	li a {
 		display: inline-flex;
 		align-items: center;
 		gap: var(--spacing-16);
@@ -119,8 +111,16 @@
 		transition: all 0.2s ease;
 	}
 
-	a:hover {
+	li a:hover {
 		background-color: var(--link-hover);
+	}
+
+	.logo {
+		font-size: var(--font-32);
+	}
+
+	span {
+		display: none;
 	}
 
 	svg {
@@ -130,6 +130,7 @@
 
 	.tweet {
 		display: none;
+		text-align: center;
 	}
 
 	.tweet:hover {
