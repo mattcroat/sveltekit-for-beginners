@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores'
 
-	const path = $page.url.pathname
+	$: path = $page.url.pathname
 </script>
 
 <aside>
@@ -11,8 +11,8 @@
 				<li>
 					<a href="/" class="logo">🐦️</a>
 				</li>
-				<li class:active={path === '/tweets'}>
-					<a href="/tweets">
+				<li class:active={path === '/home'}>
+					<a href="/home">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -29,8 +29,8 @@
 						<span>Home</span>
 					</a>
 				</li>
-				<li class:active={path === '/ronald'}>
-					<a href="/ronald">
+				<li class:active={path === '/home/profile/ronald'}>
+					<a href="/home/profile/ronald">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -47,8 +47,8 @@
 						<span>Profile</span>
 					</a>
 				</li>
-				<li class:active={path === '/settings'}>
-					<a href="/settings">
+				<li class:active={path === '/home/settings'}>
+					<a href="/home/settings">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -71,8 +71,8 @@
 						<span>Settings</span>
 					</a>
 				</li>
-				<li class:active={path === '/about'}>
-					<a href="/about">
+				<li class:active={path === '/home/about'}>
+					<a href="/home/about">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"

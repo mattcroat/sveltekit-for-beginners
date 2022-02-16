@@ -5,7 +5,7 @@
 	</section>
 
 	<section class="login">
-		<a class="btn" href="/tweets">🔥 Share Your Hot Take</a>
+		<a class="btn" href="/home">🔥 Share Your Hot Take</a>
 	</section>
 </main>
 
