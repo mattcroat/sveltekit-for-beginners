@@ -12,9 +12,9 @@ export const get: RequestHandler = async ({ params }) => {
 		include: { user: true }
 	})
 
-	// if (!profile || profile.length === 0) {
-	// 	return { status: 404 }
-	// }
+	if (!profile || !tweets || tweets.length === 0) {
+		return { status: 404 }
+	}
 
 	return {
 		headers: { 'Content-Type': 'application/json' },

@@ -1,5 +1,9 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
+	import type {
+		Tweet as TweetType,
+		User
+	} from '@prisma/client'
 
 	export const load: Load = async ({ fetch, params }) => {
 		const { user } = params
@@ -15,7 +19,10 @@
 		const { profile, tweets } = await response.json()
 
 		return {
-			props: { profile, tweets }
+			props: { profile, tweets } as {
+				profile: User
+				tweets: TweetType[]
+			}
 		}
 	}
 </script>
@@ -23,10 +30,8 @@
 <script lang="ts">
 	import Tweet from '$root/components/tweet/tweet.svelte'
 
-	export let profile
-	export let tweets
-
-	console.log({ profile, tweets })
+	export let profile: User
+	export let tweets: TweetType[]
 </script>
 
 <svelte:head>
@@ -37,7 +42,7 @@
 	<img
 		class="banner"
 		src="/profile/matia/banner.webp"
-		alt="Sunset"
+		alt="Profile banner"
 	/>
 	<img
 		class="avatar"
