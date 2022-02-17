@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Twittr</title>
+</svelte:head>
+
 <main class="container">
 	<section class="hero">
 		<h1 class="title">Twittr 🐦️</h1>
