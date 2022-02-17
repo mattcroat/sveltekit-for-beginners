@@ -127,6 +127,7 @@
 
 	.user {
 		font-weight: 700;
+		text-transform: capitalize;
 	}
 
 	.user:hover {

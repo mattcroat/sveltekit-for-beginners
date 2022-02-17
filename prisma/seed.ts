@@ -25,10 +25,10 @@ export function randomDate(): string {
 function getUsers() {
 	return [
 		{
-			name: 'Ronald',
-			handle: '@theronald',
-			email: 'ronald@example.test',
-			avatar: 'https://i.pravatar.cc/200?img=65',
+			name: 'matia',
+			handle: '@joyofcodedev',
+			email: 'matiad@example.test',
+			avatar: '/profile/matia/avatar.webp',
 			about: 'Likes long walks on the beach. 😘',
 			tweets: {
 				create: [
@@ -60,10 +60,10 @@ function getUsers() {
 			}
 		},
 		{
-			name: 'Ros',
-			handle: '@ros',
-			email: 'ros@example.test',
-			avatar: 'https://i.pravatar.cc/200?img=38',
+			name: 'bob',
+			handle: '@bobross',
+			email: 'bob@example.test',
+			avatar: '/profile/bob/avatar.webp',
 			about: 'Likes painting.',
 			tweets: {
 				create: [
