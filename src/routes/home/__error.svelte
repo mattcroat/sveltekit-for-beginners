@@ -17,10 +17,7 @@
 <div class="error">
 	<h1>{title}</h1>
 
-	<img
-		src="https://media.giphy.com/media/olAik8MhYOB9K/giphy.gif"
-		alt="Rick Astley dancing"
-	/>
+	<img src="/rick-astley.webp" alt="Rick Astley dancing" />
 </div>
 
 <style>
