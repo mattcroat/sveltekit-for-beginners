@@ -27,7 +27,7 @@ function getUsers() {
 		{
 			name: 'matia',
 			handle: '@joyofcodedev',
-			email: 'matiad@example.test',
+			email: 'matia@example.test',
 			avatar: '/profile/matia/avatar.webp',
 			about: 'Likes long walks on the beach. 😘',
 			tweets: {

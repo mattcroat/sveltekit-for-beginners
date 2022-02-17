@@ -29,10 +29,7 @@
 </script>
 
 <div class="compose">
-	<img
-		src="https://i.pravatar.cc/200?img=65"
-		alt="Ronnie"
-	/>
+	<img src="/profile/matia/avatar.webp" alt="Avatar" />
 	<form
 		on:submit|preventDefault={handleSubmit}
 		autocomplete="off"

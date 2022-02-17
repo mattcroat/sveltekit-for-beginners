@@ -29,8 +29,8 @@
 						<span>Home</span>
 					</a>
 				</li>
-				<li class:active={path === '/home/profile/ronald'}>
-					<a href="/home/profile/ronald">
+				<li class:active={path === '/home/profile/matia'}>
+					<a href="/home/profile/matia">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
