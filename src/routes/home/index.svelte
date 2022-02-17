@@ -26,6 +26,7 @@
 <script lang="ts">
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
+	import Transition from '$root/components/transition.svelte'
 
 	export let tweets: UserTweetsType[] = []
 
@@ -58,11 +59,13 @@
 
 <h1>Feed</h1>
 
-<Compose {addTweet} />
+<Transition>
+	<Compose {addTweet} />
 
-{#each tweets as tweet (tweet.id)}
-	<Tweet {tweet} {removeTweet} />
-{/each}
+	{#each tweets as tweet (tweet.id)}
+		<Tweet {tweet} {removeTweet} />
+	{/each}
+</Transition>
 
 <style>
 	h1 {

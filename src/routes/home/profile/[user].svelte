@@ -27,6 +27,7 @@
 
 <script lang="ts">
 	import Tweet from '$root/components/tweet/tweet.svelte'
+	import Transition from '$root/components/transition.svelte'
 
 	export let profile: User
 	export let tweets: UserTweetsType[]
@@ -40,49 +41,51 @@
 	<title>{profile.name} ({profile.handle})</title>
 </svelte:head>
 
-<div class="profile">
-	<img
-		class="banner"
-		src="/profile/matia/banner.webp"
-		alt="Profile banner"
-	/>
-	<img
-		class="avatar"
-		src={profile.avatar}
-		alt={profile.name}
-	/>
-</div>
-
-<div class="content">
-	<div class="user">
-		<span class="name">{profile.name}</span>
-		<span class="handle">{profile.handle}</span>
+<Transition>
+	<div class="profile">
+		<img
+			class="banner"
+			src="/profile/matia/banner.webp"
+			alt="Profile banner"
+		/>
+		<img
+			class="avatar"
+			src={profile.avatar}
+			alt={profile.name}
+		/>
 	</div>
-	<div class="about">
-		<span>{profile.about}</span>
+
+	<div class="content">
+		<div class="user">
+			<span class="name">{profile.name}</span>
+			<span class="handle">{profile.handle}</span>
+		</div>
+		<div class="about">
+			<span>{profile.about}</span>
+		</div>
 	</div>
-</div>
 
-<nav>
-	<ul>
-		<li class="active">
-			<a href="/">Tweets</a>
-		</li>
-		<li>
-			<a href="/">Tweets & replies</a>
-		</li>
-		<li>
-			<a href="/">Media</a>
-		</li>
-		<li>
-			<a href="/">Likes</a>
-		</li>
-	</ul>
-</nav>
+	<nav>
+		<ul>
+			<li class="active">
+				<a href="/">Tweets</a>
+			</li>
+			<li>
+				<a href="/">Tweets & replies</a>
+			</li>
+			<li>
+				<a href="/">Media</a>
+			</li>
+			<li>
+				<a href="/">Likes</a>
+			</li>
+		</ul>
+	</nav>
 
-{#each tweets as tweet (tweet.id)}
-	<Tweet {tweet} {removeTweet} />
-{/each}
+	{#each tweets as tweet (tweet.id)}
+		<Tweet {tweet} {removeTweet} />
+	{/each}
+</Transition>
 
 <style>
 	.profile {

@@ -1,12 +1,15 @@
 <script lang="ts">
 	import Navigation from '$root/components/sidebar/navigation.svelte'
 	import Trending from '$root/components/sidebar/trending.svelte'
+	import Transition from '$root/components/transition.svelte'
 </script>
 
 <div class="container">
 	<Navigation />
 	<main class="feed">
-		<slot />
+		<Transition>
+			<slot />
+		</Transition>
 	</main>
 	<Trending />
 </div>
