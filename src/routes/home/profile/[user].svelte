@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
-	import type { ProfileType } from '$root/types'
 
 	export const load: Load = async ({ fetch, params }) => {
 		const { user } = params
@@ -13,10 +12,10 @@
 			}
 		}
 
-		const { profile } = await response.json()
+		const { profile, tweets } = await response.json()
 
 		return {
-			props: { profile } as { profile: ProfileType }
+			props: { profile, tweets }
 		}
 	}
 </script>
@@ -24,39 +23,11 @@
 <script lang="ts">
 	import Tweet from '$root/components/tweet/tweet.svelte'
 
-	export let profile: ProfileType
+	export let profile
+	export let tweets
 
-	console.log(profile)
+	console.log({ profile, tweets })
 </script>
-
-<!-- 
-{
-	"id": 2,
-	"email": "ronald@example.test",
-	"handle": "@theronald",
-	"name": "Ronald",
-	"avatar": "https://i.pravatar.cc/200?img=65",
-	"about": "Likes long walks on the beach. 😘",
-	"tweets": [
-			{
-					"id": "ckzokb8ze0001cvfphxvelmw3",
-					"url": "296c37f690b6a",
-					"posted": "2022-02-14T21:01:25.812Z",
-					"content": "SvelteKit is lit. 🔥",
-					"likes": 10,
-					"userId": 2
-			},
-			{
-					"id": "ckzokb8ze0003cvfp2875ddiv",
-					"url": "7c8db34574c5c",
-					"posted": "2022-02-15T11:46:01.054Z",
-					"content": "I love Svelte! ❤️",
-					"likes": 24,
-					"userId": 2
-			}
-	]
-}
--->
 
 <svelte:head>
 	<title>{profile.name} ({profile.handle})</title>
@@ -65,7 +36,7 @@
 <div class="profile">
 	<img
 		class="banner"
-		src="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+		src="/profile/matia/banner.webp"
 		alt="Sunset"
 	/>
 	<img
@@ -85,13 +56,26 @@
 	</div>
 </div>
 
-<!-- {#each profile.tweets as tweet (tweet.id)}
-	<Tweet {tweet} {user} />
-{/each} -->
+<nav>
+	<ul>
+		<li class="active">
+			<a href="/">Tweets</a>
+		</li>
+		<li>
+			<a href="/">Tweets & replies</a>
+		</li>
+		<li>
+			<a href="/">Media</a>
+		</li>
+		<li>
+			<a href="/">Likes</a>
+		</li>
+	</ul>
+</nav>
 
-<pre>
-	{JSON.stringify(profile, null, 2)}
-</pre>
+{#each tweets as tweet (tweet.id)}
+	<Tweet {tweet} />
+{/each}
 
 <style>
 	.profile {
@@ -137,9 +121,38 @@
 	.name {
 		font-size: var(--font-24);
 		font-weight: 700;
+		text-transform: capitalize;
 	}
 
 	.handle {
 		color: var(--text-muted);
+	}
+
+	nav {
+		border-bottom: 1px solid var(--border-primary);
+	}
+
+	ul {
+		display: flex;
+		justify-content: center;
+		margin-top: var(--spacing-32);
+	}
+
+	li {
+		padding: var(--spacing-16) var(--spacing-32);
+		font-size: var(--font-16);
+		color: var(--text-muted);
+		border-bottom: 4px solid transparent;
+		transition: all 0.2s;
+	}
+
+	li:hover {
+		background-color: var(--link-hover);
+		border-bottom: 4px solid var(--brand);
+	}
+
+	.active {
+		font-weight: 700;
+		border-bottom: 4px solid var(--brand);
 	}
 </style>

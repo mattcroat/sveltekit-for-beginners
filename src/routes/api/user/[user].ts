@@ -3,21 +3,22 @@ import type { RequestHandler } from '@sveltejs/kit'
 import prisma from '$root/lib/prisma'
 
 export const get: RequestHandler = async ({ params }) => {
-	const { user } = params
-
 	const profile = await prisma.user.findFirst({
-		// hardcoded because I need to fix seed
-		where: { name: 'Ronald' },
-		include: { tweets: true }
+		where: { name: params.user }
 	})
 
-	if (!profile) {
-		return { status: 400 }
-	}
+	const tweets = await prisma.tweet.findMany({
+		where: { user: { name: params.user } },
+		include: { user: true }
+	})
+
+	// if (!profile || profile.length === 0) {
+	// 	return { status: 404 }
+	// }
 
 	return {
 		headers: { 'Content-Type': 'application/json' },
 		status: 200,
-		body: { profile }
+		body: { profile, tweets }
 	}
 }
