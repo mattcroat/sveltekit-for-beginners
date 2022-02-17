@@ -5,14 +5,17 @@ Todos:
     ☐ Show individual tweet /user/status/id
     ☐ Show remove option only for logged in user
   Pages:
-    ☐ Profile
-    ☐ Settings
-    ☐ About
-    ☐ Meta tags
-    ☐ Page transitions
+    ✔ Profile @done(22-02-17 14:24)
+    ✔ Settings @done(22-02-17 17:10)
+    ✔ About @done(22-02-17 17:24)
+    ✔ Meta tags @done(22-02-17 19:58)
+    ✔ Page transitions @done(22-02-17 21:40)
+    ✔ Prefetching @done(22-02-17 19:58)
   ✔ Selected navigation item @done(22-02-16 12:52)
   ☐ Progressive enhacement
   ✔ Validation @done(22-02-11 21:49)
   ✔ Errors @done(22-02-11 21:49)
-  ☐ Types
+  ☐ Check types
   ✔ Landing page @done(22-02-16 12:34)
+  ☐ Seed ID order
+  ☐ Test site without styles (are list items for links passé?)
