@@ -12,7 +12,7 @@
 					<a href="/" class="logo">🐦️</a>
 				</li>
 				<li class:active={path === '/home'}>
-					<a href="/home">
+					<a href="/home" sveltekit:prefetch>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -30,7 +30,7 @@
 					</a>
 				</li>
 				<li class:active={path === '/home/profile/matia'}>
-					<a href="/home/profile/matia">
+					<a href="/home/profile/matia" sveltekit:prefetch>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -48,7 +48,7 @@
 					</a>
 				</li>
 				<li class:active={path === '/home/settings'}>
-					<a href="/home/settings">
+					<a href="/home/settings" sveltekit:prefetch>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -72,7 +72,7 @@
 					</a>
 				</li>
 				<li class:active={path === '/home/about'}>
-					<a href="/home/about">
+					<a href="/home/about" sveltekit:prefetch>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
