@@ -2,7 +2,6 @@
 	import type { ErrorLoad } from '@sveltejs/kit'
 
 	export const load: ErrorLoad = ({ error, status }) => {
-		console.log({ error, status })
 		return {
 			props: {
 				title: `${status}: ${error.message}`
