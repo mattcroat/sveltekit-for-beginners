@@ -1,11 +1,13 @@
 <script lang="ts">
+	import type { UserTweetsType } from '$root/types'
 	import { timePosted } from '$root/utils/date'
-	import type { TweetType } from '$root/types'
 
-	export let tweet: TweetType
+	export let tweet: UserTweetsType
 	export let removeTweet: (id: string) => void
 
-	const profile = `/home/profile/${tweet.user.name.toLowerCase()}`
+	console.log(tweet)
+
+	const profile = `/home/profile/${tweet.user.name}`
 	const permalink = `${profile}/status/${tweet.url}`
 	const posted = timePosted(tweet.posted)
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import type { Load } from '@sveltejs/kit'
-	import type { TweetType } from '$root/types'
+	import type { UserTweetsType } from '$root/types'
 
 	// adding types here is a lie because
 	// you can't guarantee what's returned
@@ -18,9 +18,7 @@
 		const { tweets } = await response.json()
 
 		return {
-			props: { userTweets: tweets } as {
-				userTweets: TweetType
-			}
+			props: { tweets } as { tweets: UserTweetsType }
 		}
 	}
 </script>
@@ -29,7 +27,7 @@
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
 
-	export let userTweets: TweetType[] = []
+	export let tweets: UserTweetsType[] = []
 
 	async function addTweet(tweet: string) {
 		await fetch('/api/tweets', {
@@ -38,8 +36,8 @@
 			headers: { 'Content-Type': 'application/json' }
 		})
 		const response = await fetch('/api/tweets')
-		const { tweets } = await response.json()
-		userTweets = tweets
+		const data = await response.json()
+		tweets = data.tweets
 	}
 
 	async function removeTweet(id: string) {
@@ -49,8 +47,8 @@
 			headers: { 'Content-Type': 'application/json' }
 		})
 		const response = await fetch('/api/tweets')
-		const { tweets } = await response.json()
-		userTweets = tweets
+		const data = await response.json()
+		tweets = data.tweets
 	}
 </script>
 
@@ -58,7 +56,7 @@
 
 <Compose {addTweet} />
 
-{#each userTweets as tweet (tweet.id)}
+{#each tweets as tweet (tweet.id)}
 	<Tweet {tweet} {removeTweet} />
 {/each}
 

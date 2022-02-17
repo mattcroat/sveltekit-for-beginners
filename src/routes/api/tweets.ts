@@ -41,7 +41,7 @@ export const post: RequestHandler = async ({ request }) => {
 			url: Math.random().toString(16).slice(2),
 			content: tweet,
 			likes: 0,
-			user: { connect: { id: 1 } } // ronald 😍
+			user: { connect: { id: 1 } }
 		}
 	})
 
