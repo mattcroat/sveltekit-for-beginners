@@ -91,6 +91,7 @@
 	}
 
 	aside {
+		display: none;
 		padding: var(--spacing-16);
 	}
 
@@ -99,6 +100,12 @@
 			max-width: 1240px;
 			margin: 0 auto;
 			grid-template-columns: 1fr 50ch 1fr;
+		}
+
+		aside {
+			/* forgive me father, I'm lazy */
+			width: 400px;
+			display: block;
 		}
 	}
 </style>
