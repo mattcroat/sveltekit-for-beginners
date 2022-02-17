@@ -40,7 +40,7 @@
 		tweets = data.tweets
 	}
 
-	async function removeTweet(id: string) {
+	async function removeTweet(id: number) {
 		await fetch('/api/tweets', {
 			method: 'DELETE',
 			body: JSON.stringify({ id }),

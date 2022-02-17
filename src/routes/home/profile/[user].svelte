@@ -1,9 +1,7 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
-	import type {
-		Tweet as TweetType,
-		User
-	} from '@prisma/client'
+	import type { User } from '@prisma/client'
+	import type { UserTweetsType } from '$root/types'
 
 	export const load: Load = async ({ fetch, params }) => {
 		const { user } = params
@@ -21,7 +19,7 @@
 		return {
 			props: { profile, tweets } as {
 				profile: User
-				tweets: TweetType[]
+				tweets: UserTweetsType[]
 			}
 		}
 	}
@@ -31,7 +29,11 @@
 	import Tweet from '$root/components/tweet/tweet.svelte'
 
 	export let profile: User
-	export let tweets: TweetType[]
+	export let tweets: UserTweetsType[]
+
+	function removeTweet() {
+		// todo: placeholder
+	}
 </script>
 
 <svelte:head>
@@ -79,7 +81,7 @@
 </nav>
 
 {#each tweets as tweet (tweet.id)}
-	<Tweet {tweet} />
+	<Tweet {tweet} {removeTweet} />
 {/each}
 
 <style>

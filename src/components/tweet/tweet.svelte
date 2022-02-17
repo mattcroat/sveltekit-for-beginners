@@ -3,7 +3,7 @@
 	import { timePosted } from '$root/utils/date'
 
 	export let tweet: UserTweetsType
-	export let removeTweet: (id: string) => void
+	export let removeTweet: (id: number) => void
 
 	const profile = `/home/profile/${tweet.user.name}`
 	const permalink = `${profile}/status/${tweet.url}`
