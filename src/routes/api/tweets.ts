@@ -13,9 +13,7 @@ export const get: RequestHandler = async () => {
 	}
 
 	return {
-		headers: {
-			'Content-Type': 'application/json'
-		},
+		headers: { 'Content-Type': 'application/json' },
 		status: 200,
 		body: { tweets }
 	}

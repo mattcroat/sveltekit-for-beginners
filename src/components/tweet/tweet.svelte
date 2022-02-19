@@ -9,98 +9,97 @@
 	const posted = timePosted(tweet.posted)
 </script>
 
-<a href={permalink} class="permalink">
-	<article class="tweet-container">
-		<a class="avatar" href={profile}>
-			<img src={tweet.user.avatar} alt={tweet.user.name} />
-		</a>
+<article class="tweet-container">
+	<a class="avatar" href={profile}>
+		<img src={tweet.user.avatar} alt={tweet.user.name} />
+	</a>
 
-		<div class="tweet-details">
-			<div>
-				<a href={profile} class="user">{tweet.user.name}</a>
-				<span class="handle">{tweet.user.handle}</span>
-				<span class="posted"> · {posted}</span>
+	<div class="tweet-details">
+		<div>
+			<a href={profile} class="user">{tweet.user.name}</a>
+			<span class="handle">{tweet.user.handle}</span>
+			<span class="posted"> · {posted}</span>
+		</div>
+
+		<div class="tweet">
+			<div class="content">
+				{tweet.content}
 			</div>
 
-			<div class="tweet">
-				<div class="content">
-					{tweet.content}
-				</div>
-				<div class="actions">
-					<button class="btn like" title="Like">
-						<div class="circle">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-								/>
-							</svg>
-						</div>
-						<span class="count">{tweet.likes}</span>
-					</button>
-
-					<button class="btn share" title="Share">
-						<div class="circle">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-								/>
-							</svg>
-						</div>
-					</button>
-
-					<form
-						action="/api/tweets?_method=delete"
-						method="post"
-					>
-						<input
-							type="hidden"
-							name="id"
-							value={tweet.id}
-						/>
-						<button
-							aria-label="Remove tweet"
-							class="btn remove"
-							title="Remove"
-							type="submit"
+			<div class="actions">
+				<button class="btn like" title="Like">
+					<div class="circle">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
 						>
-							<div class="circle">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="1"
-										d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-									/>
-								</svg>
-							</div>
-						</button>
-					</form>
-				</div>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1"
+								d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+							/>
+						</svg>
+					</div>
+					<span class="count">{tweet.likes}</span>
+				</button>
+
+				<a
+					href={permalink}
+					class="permalink"
+					title="Permalink"
+				>
+					<div class="circle">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1"
+								d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+							/>
+						</svg>
+					</div>
+				</a>
+
+				<form
+					action="/api/tweets?_method=delete"
+					method="post"
+				>
+					<input type="hidden" name="id" value={tweet.id} />
+					<button
+						aria-label="Remove tweet"
+						class="btn remove"
+						title="Remove"
+						type="submit"
+					>
+						<div class="circle">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="1"
+									d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+								/>
+							</svg>
+						</div>
+					</button>
+				</form>
 			</div>
 		</div>
-	</article>
-</a>
+	</div>
+</article>
 
 <style>
 	.avatar {
@@ -118,7 +117,7 @@
 		padding: var(--spacing-16);
 	}
 
-	.permalink:hover .tweet-container {
+	.tweet-container:hover {
 		background-color: var(--background-secondary);
 	}
 
@@ -161,7 +160,8 @@
 		margin-top: var(--spacing-16);
 	}
 
-	.actions button {
+	.actions button,
+	.actions a {
 		padding: 0;
 		color: var(--text-muted);
 		background: none;
@@ -192,11 +192,11 @@
 		background: hsla(9 100% 64% / 10%);
 	}
 
-	.share:hover {
+	.permalink:hover {
 		color: hsl(120 100% 40%);
 	}
 
-	.share:hover .circle {
+	.permalink:hover .circle {
 		background-color: hsla(120 100% 50% / 4%);
 	}
 
