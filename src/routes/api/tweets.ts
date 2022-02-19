@@ -23,10 +23,10 @@ export const get: RequestHandler = async () => {
 
 // https://kit.svelte.dev/docs/routing#endpoints-body-parsing
 export const post: RequestHandler = async ({ request }) => {
-	const { tweet } = await request.json()
+	const form = await request.formData()
+	const tweet = form.get('tweet') as string
 
-	// should use some more serious validation 😆
-	if (!tweet || tweet.length > 140) {
+	if (tweet.length > 140) {
 		return {
 			status: 400,
 			body: 'Maximum Tweet length exceeded.',
@@ -46,7 +46,9 @@ export const post: RequestHandler = async ({ request }) => {
 	})
 
 	return {
-		body: { tweet }
+		status: 303,
+		body: { tweet },
+		headers: { location: '/home' }
 	}
 }
 

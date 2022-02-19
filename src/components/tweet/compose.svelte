@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let addTweet: (tweet: string) => void
+	// export let addTweet: (tweet: string) => void
 
 	let tweet = ''
 	let maxCharacters = 140
@@ -12,26 +12,13 @@
 		const characterLimit = 140
 		return value.length < characterLimit
 	}
-
-	async function handleSubmit(event: SubmitEvent) {
-		let form = event.target as HTMLFormElement
-		const formData = new FormData(form)
-		const content = formData.get('tweet') as string
-
-		if (!isNotOverCharacterLimit(content)) {
-			// we could have error handling here
-			return
-		}
-
-		addTweet(tweet)
-		tweet = ''
-	}
 </script>
 
 <div class="compose">
 	<img src="/profile/matia/avatar.webp" alt="Avatar" />
 	<form
-		on:submit|preventDefault={handleSubmit}
+		action="/api/tweets"
+		method="post"
 		autocomplete="off"
 	>
 		<!--
