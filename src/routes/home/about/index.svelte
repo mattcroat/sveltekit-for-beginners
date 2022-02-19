@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	// https://kit.svelte.dev/docs/page-options
 	export const hydrate = false
-	export const router = false
+	export const router = true
 	export const prerender = true
 </script>
 
