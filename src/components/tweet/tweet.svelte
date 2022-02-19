@@ -3,6 +3,7 @@
 	import { timePosted } from '$root/utils/date'
 
 	export let tweet: UserTweetsType
+	export let likeTweet: (id: number) => void
 
 	const profile = `/home/profile/${tweet.user.name}`
 	const permalink = `${profile}/status/${tweet.url}`
@@ -27,7 +28,11 @@
 			</div>
 
 			<div class="actions">
-				<button class="btn like" title="Like">
+				<button
+					on:click={() => likeTweet(tweet.id)}
+					class="btn like"
+					title="Like"
+				>
 					<div class="circle">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +48,9 @@
 							/>
 						</svg>
 					</div>
-					<span class="count">{tweet.likes}</span>
+					<span class="count">
+						{tweet.likes === 0 ? '' : tweet.likes}
+					</span>
 				</button>
 
 				<a
