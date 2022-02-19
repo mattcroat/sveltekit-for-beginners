@@ -2,8 +2,9 @@ Todos:
   Tweets:
     ✔ Add tweet @done(22-02-11 21:49)
     ✔ Remove tweet @done(22-02-15 22:36)
-    ☐ Show individual tweet /user/status/id
-    ☐ Show remove option only for logged in user
+    ✔ Like tweet @done(22-02-19 22:22)
+    ✔ Remove tweet @done(22-02-19 19:36)
+    ☐ Permalink
   Pages:
     ✔ Profile @done(22-02-17 14:24)
     ✔ Settings @done(22-02-17 17:10)
@@ -19,3 +20,5 @@ Todos:
   ✔ Landing page @done(22-02-16 12:34)
   ☐ Seed ID order
   ☐ Test site without styles (are list items for links passé?)
+  ☐ Define size for SVGs
+  ☐ Authentication
