@@ -45,7 +45,7 @@
 	<div class="profile">
 		<img
 			class="banner"
-			src="/profile/matia/banner.webp"
+			src="/profile/{profile.name}/banner.webp"
 			alt="Profile banner"
 		/>
 		<img
