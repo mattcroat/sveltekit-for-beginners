@@ -53,11 +53,14 @@ export const post: RequestHandler = async ({ request }) => {
 }
 
 export const del: RequestHandler = async ({ request }) => {
-	const { id } = await request.json()
-	await prisma.tweet.delete({ where: { id } })
+	const form = await request.formData()
+	const tweetId = +form.get('id')
+
+	await prisma.tweet.delete({ where: { id: tweetId } })
 
 	return {
-		status: 200,
-		body: id
+		status: 303,
+		body: { tweetId },
+		headers: { location: '/home' }
 	}
 }

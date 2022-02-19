@@ -29,28 +29,6 @@
 	import Transition from '$root/components/transition.svelte'
 
 	export let tweets: UserTweetsType[] = []
-
-	async function addTweet(tweet: string) {
-		await fetch('/api/tweets', {
-			method: 'POST',
-			body: JSON.stringify({ tweet }),
-			headers: { 'Content-Type': 'application/json' }
-		})
-		const response = await fetch('/api/tweets')
-		const data = await response.json()
-		tweets = data.tweets
-	}
-
-	async function removeTweet(id: number) {
-		await fetch('/api/tweets', {
-			method: 'DELETE',
-			body: JSON.stringify({ id }),
-			headers: { 'Content-Type': 'application/json' }
-		})
-		const response = await fetch('/api/tweets')
-		const data = await response.json()
-		tweets = data.tweets
-	}
 </script>
 
 <svelte:head>
@@ -60,10 +38,10 @@
 <h1>Feed</h1>
 
 <Transition>
-	<Compose {addTweet} />
+	<Compose />
 
 	{#each tweets as tweet (tweet.id)}
-		<Tweet {tweet} {removeTweet} />
+		<Tweet {tweet} />
 	{/each}
 </Transition>
 

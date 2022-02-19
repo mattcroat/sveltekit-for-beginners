@@ -3,7 +3,6 @@
 	import { timePosted } from '$root/utils/date'
 
 	export let tweet: UserTweetsType
-	export let removeTweet: (id: number) => void
 
 	const profile = `/home/profile/${tweet.user.name}`
 	const permalink = `${profile}/status/${tweet.url}`
@@ -46,6 +45,7 @@
 						</div>
 						<span class="count">{tweet.likes}</span>
 					</button>
+
 					<button class="btn share" title="Share">
 						<div class="circle">
 							<svg
@@ -63,28 +63,39 @@
 							</svg>
 						</div>
 					</button>
-					<button
-						on:click|preventDefault={() =>
-							removeTweet(tweet.id)}
-						class="btn remove"
-						title="Remove"
+
+					<form
+						action="/api/tweets?_method=delete"
+						method="post"
 					>
-						<div class="circle">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-								/>
-							</svg>
-						</div>
-					</button>
+						<input
+							type="hidden"
+							name="id"
+							value={tweet.id}
+						/>
+						<button
+							aria-label="Remove tweet"
+							class="btn remove"
+							title="Remove"
+							type="submit"
+						>
+							<div class="circle">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1"
+										d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+									/>
+								</svg>
+							</div>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -150,7 +161,7 @@
 		margin-top: var(--spacing-16);
 	}
 
-	.actions > button {
+	.actions button {
 		padding: 0;
 		color: var(--text-muted);
 		background: none;
@@ -192,6 +203,7 @@
 	.remove:hover {
 		color: hsl(0 100% 50%);
 	}
+
 	.remove:hover .circle {
 		background-color: hsla(0 100% 50% / 4%);
 	}

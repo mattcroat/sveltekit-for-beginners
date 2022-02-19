@@ -1,6 +1,4 @@
 <script lang="ts">
-	// export let addTweet: (tweet: string) => void
-
 	let tweet = ''
 	let maxCharacters = 140
 
