@@ -4,7 +4,7 @@ Todos:
     ✔ Remove tweet @done(22-02-15 22:36)
     ✔ Like tweet @done(22-02-19 22:22)
     ✔ Remove tweet @done(22-02-19 19:36)
-    ☐ Permalink
+    ✔ Permalink @done(22-02-20 15:48)
   Pages:
     ✔ Profile @done(22-02-17 14:24)
     ✔ Settings @done(22-02-17 17:10)
@@ -13,12 +13,12 @@ Todos:
     ✔ Page transitions @done(22-02-17 21:40)
     ✔ Prefetching @done(22-02-17 19:58)
   ✔ Selected navigation item @done(22-02-16 12:52)
-  ☐ Progressive enhacement
+  ☐ Progressive enhancement
   ✔ Validation @done(22-02-11 21:49)
   ✔ Errors @done(22-02-11 21:49)
-  ☐ Check types
+  ✔ Check types @done(22-02-20 14:58)
   ✔ Landing page @done(22-02-16 12:34)
-  ☐ Seed ID order
-  ☐ Test site without styles (are list items for links passé?)
+  ☐ Test site without styles
   ☐ Define size for SVGs
-  ☐ Authentication
+  Stretch:
+    ☐ Authentication
