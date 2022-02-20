@@ -1,13 +1,17 @@
 <script lang="ts">
-	import type { UserTweetsType } from '$root/types'
-	import { timePosted } from '$root/utils/date'
+	import { fly } from 'svelte/transition'
 
+	import { timePosted } from '$root/utils/date'
+	import type { UserTweetsType } from '$root/types'
 	export let tweet: UserTweetsType
 	export let likeTweet: (id: number) => void
+	export let likedTweets: number[]
 
 	const profile = `/home/profile/${tweet.user.name}`
 	const permalink = `${profile}/status/${tweet.url}`
 	const posted = timePosted(tweet.posted)
+
+	$: liked = likedTweets.includes(tweet.id)
 </script>
 
 <article class="tweet-container">
@@ -35,6 +39,7 @@
 				>
 					<div class="circle">
 						<svg
+							class:liked
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
@@ -49,7 +54,13 @@
 						</svg>
 					</div>
 					<span class="count">
-						{tweet.likes === 0 ? '' : tweet.likes}
+						{#key tweet.likes}
+							{#if tweet.likes}
+								<div in:fly={{ y: 40 }} out:fly={{ y: 40 }}>
+									{tweet.likes}
+								</div>
+							{/if}
+						{/key}
 					</span>
 				</button>
 
@@ -185,9 +196,14 @@
 		transition: all 0.3s;
 	}
 
+	.liked {
+		color: hsl(9 100% 64%);
+		fill: hsl(9 100% 64%);
+	}
+
 	.like {
 		display: flex;
-		gap: var(--spacing-16);
+		/* gap: var(--spacing-16); */
 		align-items: center;
 	}
 
@@ -215,9 +231,17 @@
 		background-color: hsla(0 100% 50% / 4%);
 	}
 
+	.like,
+	.remove,
+	.permalink {
+		width: 80px;
+	}
+
 	.count {
+		margin-left: var(--spacing-16);
 		font-size: 1.4rem;
 		font-weight: 400;
+		overflow: hidden;
 	}
 
 	svg {

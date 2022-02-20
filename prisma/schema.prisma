@@ -31,5 +31,6 @@ model User {
 model Liked {
   id      Int  @id @default(autoincrement())
   tweetId Int  @unique
-  user    User @relation(fields: [id], references: [id])
+  user    User @relation(fields: [userId], references: [id])
+  userId  Int
 }

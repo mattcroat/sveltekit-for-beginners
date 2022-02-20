@@ -17,10 +17,7 @@
 		const { profile, tweets } = await response.json()
 
 		return {
-			props: { profile, tweets } as {
-				profile: User
-				tweets: UserTweetsType[]
-			}
+			props: { profile, tweets }
 		}
 	}
 </script>

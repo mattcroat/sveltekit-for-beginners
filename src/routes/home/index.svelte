@@ -15,10 +15,10 @@
 			}
 		}
 
-		const { tweets } = await response.json()
+		const { tweets, likedTweets } = await response.json()
 
 		return {
-			props: { tweets } as { tweets: UserTweetsType }
+			props: { tweets, likedTweets }
 		}
 	}
 </script>
@@ -29,6 +29,7 @@
 	import Transition from '$root/components/transition.svelte'
 
 	export let tweets: UserTweetsType[] = []
+	export let likedTweets: number[]
 
 	async function likeTweet(id: number) {
 		await fetch('/api/like', {
@@ -38,6 +39,7 @@
 		const response = await fetch('/api/tweets')
 		const data = await response.json()
 		tweets = data.tweets
+		likedTweets = data.likedTweets
 	}
 </script>
 
@@ -51,7 +53,7 @@
 	<Compose />
 
 	{#each tweets as tweet (tweet.id)}
-		<Tweet {tweet} {likeTweet} />
+		<Tweet {tweet} {likedTweets} {likeTweet} />
 	{/each}
 </Transition>
 
