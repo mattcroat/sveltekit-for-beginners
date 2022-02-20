@@ -28,10 +28,6 @@
 
 	export let profile: User
 	export let tweets: UserTweetsType[]
-
-	function removeTweet() {
-		// todo: placeholder
-	}
 </script>
 
 <svelte:head>
@@ -80,7 +76,7 @@
 	</nav>
 
 	{#each tweets as tweet (tweet.id)}
-		<Tweet {tweet} {removeTweet} />
+		<Tweet {tweet} />
 	{/each}
 </Transition>
 

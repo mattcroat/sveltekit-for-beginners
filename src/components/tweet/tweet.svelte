@@ -5,7 +5,7 @@
 	import type { UserTweetsType } from '$root/types'
 	export let tweet: UserTweetsType
 	export let likeTweet: (id: number) => void
-	export let likedTweets: number[]
+	export let likedTweets: number[] = []
 
 	const profile = `/home/profile/${tweet.user.name}`
 	const permalink = `${profile}/status/${tweet.url}`
