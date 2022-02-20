@@ -14,6 +14,8 @@
 				<li class:active={path === '/home'}>
 					<a href="/home" sveltekit:prefetch>
 						<svg
+							width="24"
+							height="24"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
@@ -32,6 +34,8 @@
 				<li class:active={path === '/home/profile/matia'}>
 					<a href="/home/profile/matia" sveltekit:prefetch>
 						<svg
+							width="24"
+							height="24"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
@@ -50,6 +54,8 @@
 				<li class:active={path === '/home/settings'}>
 					<a href="/home/settings" sveltekit:prefetch>
 						<svg
+							width="24"
+							height="24"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
@@ -74,6 +80,8 @@
 				<li class:active={path === '/home/about'}>
 					<a href="/home/about" sveltekit:prefetch>
 						<svg
+							width="24"
+							height="24"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"

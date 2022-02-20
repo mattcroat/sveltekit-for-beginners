@@ -16,7 +16,12 @@
 
 <article class="tweet-container">
 	<a class="avatar" href={profile}>
-		<img src={tweet.user.avatar} alt={tweet.user.name} />
+		<img
+			width="140"
+			height="140"
+			src={tweet.user.avatar}
+			alt={tweet.user.name}
+		/>
 	</a>
 
 	<div class="tweet-details">
@@ -39,6 +44,8 @@
 				>
 					<div class="circle">
 						<svg
+							width="24"
+							height="24"
 							class:liked
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -71,6 +78,8 @@
 				>
 					<div class="circle">
 						<svg
+							width="24"
+							height="24"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
@@ -99,6 +108,8 @@
 					>
 						<div class="circle">
 							<svg
+								width="24"
+								height="24"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
 								viewBox="0 0 24 24"
