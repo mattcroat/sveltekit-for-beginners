@@ -1,27 +1,3 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-
-	export const load: Load = async ({ fetch, params }) => {
-		// params returns { user: 'name', tweetId: 'b75aa292bd915' }
-		const response = await fetch(
-			`/api/tweet/${params.tweetId}`
-		)
-
-		if (!response.ok) {
-			return {
-				status: response.status,
-				error: new Error(`Could not load Tweet. 🐦️`)
-			}
-		}
-
-		const { tweet } = await response.json()
-
-		return {
-			props: { tweet }
-		}
-	}
-</script>
-
 <script lang="ts">
 	import Tweet from '$root/components/tweet/tweet.svelte'
 	import type { UserTweetsType } from '$root/types'
