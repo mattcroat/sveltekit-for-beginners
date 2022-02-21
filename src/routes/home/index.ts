@@ -32,7 +32,7 @@ export const get: RequestHandler = async () => {
 // https://kit.svelte.dev/docs/routing#endpoints-body-parsing
 export const post: RequestHandler = async ({ request }) => {
 	const form = await request.formData()
-	const tweet = form.get('tweet') as string
+	const tweet = String(form.get('tweet'))
 
 	if (tweet.length > 140) {
 		return {
@@ -54,4 +54,18 @@ export const post: RequestHandler = async ({ request }) => {
 	})
 
 	return {}
+}
+
+export const del: RequestHandler = async ({ request }) => {
+	const form = await request.formData()
+	const tweetId = +form.get('id')
+
+	await prisma.tweet.delete({ where: { id: tweetId } })
+
+	// returning because I might need the tweet id
+	return {
+		status: 303,
+		body: { tweetId },
+		headers: { location: '/home' }
+	}
 }

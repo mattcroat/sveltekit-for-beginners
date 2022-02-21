@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition'
+	import { fade, fly } from 'svelte/transition'
 
+	import { enhance } from '$root/lib/form'
 	import { timePosted } from '$root/utils/date'
 	import type { UserTweetsType } from '$root/types'
 
@@ -15,7 +16,7 @@
 	$: liked = likedTweets.includes(tweet.id)
 </script>
 
-<article class="tweet-container">
+<article class="tweet-container" transition:fade>
 	<a class="avatar" href={profile}>
 		<img
 			width="140"
@@ -97,8 +98,9 @@
 				</a>
 
 				<form
-					action="/api/tweets?_method=delete"
+					action="/home?_method=delete"
 					method="post"
+					use:enhance
 				>
 					<input type="hidden" name="id" value={tweet.id} />
 					<button
