@@ -1,30 +1,8 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-	import type { User } from '@prisma/client'
-	import type { UserTweetsType } from '$root/types'
-
-	export const load: Load = async ({ fetch, params }) => {
-		const { user } = params
-		const response = await fetch(`/api/user/${user}`)
-
-		if (!response.ok) {
-			return {
-				status: response.status,
-				error: new Error(`Could not get profile. 💩`)
-			}
-		}
-
-		const { profile, tweets } = await response.json()
-
-		return {
-			props: { profile, tweets }
-		}
-	}
-</script>
-
 <script lang="ts">
+	import type { User } from '@prisma/client'
 	import Tweet from '$root/components/tweet/tweet.svelte'
 	import Transition from '$root/components/transition.svelte'
+	import type { UserTweetsType } from '$root/types'
 
 	export let profile: User
 	export let tweets: UserTweetsType[]
