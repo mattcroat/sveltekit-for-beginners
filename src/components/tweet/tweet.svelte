@@ -3,6 +3,7 @@
 
 	import { timePosted } from '$root/utils/date'
 	import type { UserTweetsType } from '$root/types'
+
 	export let tweet: UserTweetsType
 	export let likeTweet: (id: number) => void
 	export let likedTweets: number[] = []

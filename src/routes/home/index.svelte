@@ -1,33 +1,12 @@
-<script lang="ts" context="module">
-	import type { Load } from '@sveltejs/kit'
-	import type { UserTweetsType } from '$root/types'
-
-	// adding types here is a lie because
-	// you can't guarantee what's returned
-	// use a schema validation library
-	export const load: Load = async ({ fetch }) => {
-		const response = await fetch('/api/tweets')
-
-		if (!response.ok) {
-			return {
-				status: response.status,
-				error: new Error(`Could not load Tweets. 🐦️`)
-			}
-		}
-
-		const { tweets, likedTweets } = await response.json()
-
-		return {
-			props: { tweets, likedTweets }
-		}
-	}
-</script>
-
 <script lang="ts">
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
 	import Transition from '$root/components/transition.svelte'
+	import type { UserTweetsType } from '$root/types'
 
+	// if an endpoint has the same filename as a page
+	// the page will get its props from the endpoint
+	// https://kit.svelte.dev/docs/routing#endpoints
 	export let tweets: UserTweetsType[] = []
 	export let likedTweets: number[]
 
