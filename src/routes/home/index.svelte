@@ -9,17 +9,6 @@
 	// https://kit.svelte.dev/docs/routing#endpoints
 	export let tweets: UserTweetsType[] = []
 	export let likedTweets: number[]
-
-	async function likeTweet(id: number) {
-		await fetch('/api/like', {
-			method: 'post',
-			body: JSON.stringify(id)
-		})
-		const response = await fetch('/api/tweets')
-		const data = await response.json()
-		tweets = data.tweets
-		likedTweets = data.likedTweets
-	}
 </script>
 
 <svelte:head>
@@ -32,7 +21,7 @@
 	<Compose />
 
 	{#each tweets as tweet (tweet.id)}
-		<Tweet {tweet} {likedTweets} {likeTweet} />
+		<Tweet {tweet} {likedTweets} />
 	{/each}
 </Transition>
 

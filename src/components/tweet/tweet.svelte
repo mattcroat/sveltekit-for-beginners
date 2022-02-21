@@ -6,7 +6,6 @@
 	import type { UserTweetsType } from '$root/types'
 
 	export let tweet: UserTweetsType
-	export let likeTweet: (id: number) => void
 	export let likedTweets: number[] = []
 
 	const profile = `/home/profile/${tweet.user.name}`
@@ -39,39 +38,45 @@
 			</div>
 
 			<div class="actions">
-				<button
-					on:click={() => likeTweet(tweet.id)}
-					class="btn like"
-					title="Like"
-				>
-					<div class="circle">
-						<svg
-							width="24"
-							height="24"
-							class:liked
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1"
-								d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-							/>
-						</svg>
-					</div>
-					<span class="count">
-						{#key tweet.likes}
-							{#if tweet.likes}
-								<div in:fly={{ y: 40 }} out:fly={{ y: 40 }}>
-									{tweet.likes}
-								</div>
-							{/if}
-						{/key}
-					</span>
-				</button>
+				<form action="/home/like" method="post" use:enhance>
+					<input type="hidden" name="id" value={tweet.id} />
+					<button
+						class="btn like"
+						title="Like"
+						type="submit"
+					>
+						<div class="circle">
+							<svg
+								width="24"
+								height="24"
+								class:liked
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="1"
+									d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+								/>
+							</svg>
+						</div>
+						<span class="count">
+							{#key tweet.likes}
+								{#if tweet.likes}
+									<div
+										in:fly={{ y: 40 }}
+										out:fly={{ y: 40 }}
+									>
+										{tweet.likes}
+									</div>
+								{/if}
+							{/key}
+						</span>
+					</button>
+				</form>
 
 				<a
 					href={permalink}
