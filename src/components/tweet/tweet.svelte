@@ -3,6 +3,7 @@
 
 	import { enhance } from '$root/lib/form'
 	import { timePosted } from '$root/utils/date'
+	import Icon from '$root/components/icon.svelte'
 	import type { UserTweetsType } from '$root/types'
 
 	export let tweet: UserTweetsType
@@ -46,22 +47,12 @@
 						type="submit"
 					>
 						<div class="circle">
-							<svg
+							<Icon
 								width="24"
 								height="24"
-								class:liked
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-								/>
-							</svg>
+								name="like"
+								class={liked ? 'liked' : ''}
+							/>
 						</div>
 						<span class="count">
 							{#key tweet.likes}
@@ -84,21 +75,7 @@
 					title="Permalink"
 				>
 					<div class="circle">
-						<svg
-							width="24"
-							height="24"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1"
-								d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-							/>
-						</svg>
+						<Icon width="24" height="24" name="permalink" />
 					</div>
 				</a>
 
@@ -115,21 +92,7 @@
 						type="submit"
 					>
 						<div class="circle">
-							<svg
-								width="24"
-								height="24"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-								/>
-							</svg>
+							<Icon width="24" height="24" name="remove" />
 						</div>
 					</button>
 				</form>
@@ -215,7 +178,7 @@
 		transition: all 0.3s;
 	}
 
-	.liked {
+	.circle > :global(.liked) {
 		color: hsl(9 100% 64%);
 		fill: hsl(9 100% 64%);
 	}
