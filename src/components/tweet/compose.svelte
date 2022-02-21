@@ -1,23 +1,20 @@
 <script lang="ts">
+	import { enhance } from '$root/lib/form'
+
 	let tweet = ''
 	let maxCharacters = 140
 
 	$: charactersLeft = maxCharacters - tweet.length
-
-	// it's wiser to use a schema validation library
-	// such as https://github.com/colinhacks/zod
-	function isNotOverCharacterLimit(value: string): boolean {
-		const characterLimit = 140
-		return value.length < characterLimit
-	}
 </script>
 
 <div class="compose">
 	<img src="/profile/matia/avatar.webp" alt="Avatar" />
+	<!-- we pass a function to reset the form -->
 	<form
-		action="/api/tweets"
+		action="/home"
 		method="post"
 		autocomplete="off"
+		use:enhance={{ result: ({ form }) => form.reset() }}
 	>
 		<!--
 			name attribute is important if you want to
