@@ -9,7 +9,8 @@ export const get: RequestHandler = async ({ params }) => {
 
 	const tweets = await prisma.tweet.findMany({
 		where: { user: { name: params.user } },
-		include: { user: true }
+		include: { user: true },
+		orderBy: { posted: 'desc' }
 	})
 
 	if (!profile || !tweets || tweets.length === 0) {
