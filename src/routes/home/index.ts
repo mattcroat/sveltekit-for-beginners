@@ -62,10 +62,8 @@ export const del: RequestHandler = async ({ request }) => {
 
 	await prisma.tweet.delete({ where: { id: tweetId } })
 
-	// returning because I might need the tweet id
 	return {
 		status: 303,
-		body: { tweetId },
 		headers: { location: '/home' }
 	}
 }

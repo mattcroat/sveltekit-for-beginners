@@ -185,7 +185,6 @@
 
 	.like {
 		display: flex;
-		/* gap: var(--spacing-16); */
 		align-items: center;
 	}
 
@@ -224,10 +223,5 @@
 		font-size: 1.4rem;
 		font-weight: 400;
 		overflow: hidden;
-	}
-
-	svg {
-		width: 24px;
-		height: 24px;
 	}
 </style>
