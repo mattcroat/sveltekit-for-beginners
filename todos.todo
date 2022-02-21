@@ -1,26 +1,29 @@
-Todos:
-  Tweets:
-    ✔ Add tweet @done(22-02-11 21:49)
-    ✔ Remove tweet @done(22-02-15 22:36)
-    ✔ Like tweet @done(22-02-19 22:22)
-    ✔ Remove tweet @done(22-02-19 19:36)
-    ✔ Permalink @done(22-02-20 15:48)
-  Pages:
-    ✔ Profile @done(22-02-17 14:24)
-    ✔ Settings @done(22-02-17 17:10)
-    ✔ About @done(22-02-17 17:24)
-    ✔ Meta tags @done(22-02-17 19:58)
-    ✔ Page transitions @done(22-02-17 21:40)
-    ✔ Prefetching @done(22-02-17 19:58)
+Tweets:
+  ✔ Add tweet @done(22-02-11 21:49)
+  ✔ Remove tweet @done(22-02-15 22:36)
+  ✔ Like tweet @done(22-02-19 22:22)
+  ✔ Permalink @done(22-02-20 15:48)
+  
+Pages:
+  ✔ Landing page @done(22-02-16 12:34)
+  ✔ Profile @done(22-02-17 14:24)
+  ✔ Settings @done(22-02-17 17:10)
+  ✔ About @done(22-02-17 17:24)
+  ✔ Meta tags @done(22-02-17 19:58)
+  ✔ Page transitions @done(22-02-17 21:40)
+  ✔ Prefetching @done(22-02-17 19:58)
+
+Other:
   ✔ Selected navigation item @done(22-02-16 12:52)
   ✔ Progressive enhancement @done(22-02-21 14:38)
   ✔ Validation @done(22-02-11 21:49)
   ✔ Errors @done(22-02-11 21:49)
-  ✔ Check types @done(22-02-20 14:58)
-  ✔ Landing page @done(22-02-16 12:34)
+  ✔ Types @done(22-02-20 14:58)
   ✔ Test site without styles @done(22-02-20 18:59)
   ✔ Define size for SVGs @done(22-02-20 18:59)
-  ☐ Clean up SVG markup
-  Stretch:
-    ✔ Shadow endpoints @done(22-02-21 14:38)
-    ☐ Authentication
+  ✔ Clean up SVG markup @done(22-02-21 14:58)
+  ☐ Add store
+
+Stretch:
+  ✔ Shadow endpoints @done(22-02-21 14:38)
+  ☐ Authentication
