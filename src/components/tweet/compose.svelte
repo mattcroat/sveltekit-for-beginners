@@ -24,7 +24,7 @@
 			aria-label="Enter your Tweet"
 			bind:value={tweet}
 			name="tweet"
-			placeholder="What's up dog?"
+			placeholder="What's your hot take?"
 			type="text"
 		/>
 		<button
