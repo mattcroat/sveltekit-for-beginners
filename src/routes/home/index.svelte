@@ -19,7 +19,6 @@
 
 <Transition>
 	<Compose />
-
 	{#each tweets as tweet (tweet.id)}
 		<Tweet {tweet} {likedTweets} />
 	{/each}

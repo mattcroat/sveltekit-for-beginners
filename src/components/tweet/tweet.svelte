@@ -14,6 +14,18 @@
 	const posted = timePosted(tweet.posted)
 
 	$: liked = likedTweets.includes(tweet.id)
+
+	// instead of doing this we use a svelte action we can reuse
+	// async function removeTodo(event: SubmitEvent) {
+	// 	const form = event.target as HTMLFormElement
+
+	// 	await fetch('/home?_method=delete', {
+	// 		method: 'post',
+	// 		body: new FormData(form)
+	// 	})
+
+	// 	invalidate($page.url.pathname)
+	// }
 </script>
 
 <article class="tweet-container" transition:fade>
