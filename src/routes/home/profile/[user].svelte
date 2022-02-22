@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { User } from '@prisma/client'
+
 	import Tweet from '$root/components/tweet/tweet.svelte'
 	import Transition from '$root/components/transition.svelte'
-	import type { UserTweetsType } from '$root/types'
+	import type { TweetType } from '$root/types'
 
 	export let profile: User
-	export let tweets: UserTweetsType[]
+	export let tweets: TweetType[]
 </script>
 
 <svelte:head>

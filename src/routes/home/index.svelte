@@ -2,13 +2,12 @@
 	import Compose from '$root/components/tweet/compose.svelte'
 	import Tweet from '$root/components/tweet/tweet.svelte'
 	import Transition from '$root/components/transition.svelte'
-	import type { UserTweetsType } from '$root/types'
+	import type { TweetType } from '$root/types'
 
 	// if an endpoint has the same filename as a page
 	// the page will get its props from the endpoint
 	// https://kit.svelte.dev/docs/routing#endpoints
-	export let tweets: UserTweetsType[] = []
-	export let likedTweets: number[]
+	export let tweets: TweetType[] = []
 </script>
 
 <svelte:head>
@@ -20,7 +19,7 @@
 <Transition>
 	<Compose />
 	{#each tweets as tweet (tweet.id)}
-		<Tweet {tweet} {likedTweets} />
+		<Tweet {tweet} />
 	{/each}
 </Transition>
 

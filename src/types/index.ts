@@ -1,3 +1,11 @@
-import type { Tweet, User } from '@prisma/client'
-
-export type UserTweetsType = Tweet & { user: User }
+export type TweetType = {
+	id: number
+	content: string
+	likes: number
+	posted: string
+	url: string
+	avatar: string
+	handle: string
+	name: string
+	liked: boolean
+}

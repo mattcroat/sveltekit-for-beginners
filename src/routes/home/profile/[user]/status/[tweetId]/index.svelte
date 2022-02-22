@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Tweet from '$root/components/tweet/tweet.svelte'
-	import type { UserTweetsType } from '$root/types'
+	import type { TweetType } from '$root/types'
 
-	export let tweet: UserTweetsType
+	export let tweet: TweetType
 
-	const name = tweet.user.name
+	const name = tweet.name
 	const content = tweet.content.slice(0, 60)
 </script>
 

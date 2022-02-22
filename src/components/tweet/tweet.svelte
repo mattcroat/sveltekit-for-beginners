@@ -2,18 +2,10 @@
 	import { fade, fly } from 'svelte/transition'
 
 	import { enhance } from '$root/lib/form'
-	import { timePosted } from '$root/utils/date'
 	import Icon from '$root/components/icon.svelte'
-	import type { UserTweetsType } from '$root/types'
+	import type { TweetType } from '$root/types'
 
-	export let tweet: UserTweetsType
-	export let likedTweets: number[] = []
-
-	const profile = `/home/profile/${tweet.user.name}`
-	const permalink = `${profile}/status/${tweet.url}`
-	const posted = timePosted(tweet.posted)
-
-	$: liked = likedTweets.includes(tweet.id)
+	export let tweet: TweetType
 
 	// instead of doing this we use a svelte action we can reuse
 	// async function removeTodo(event: SubmitEvent) {
@@ -29,20 +21,22 @@
 </script>
 
 <article class="tweet-container" transition:fade>
-	<a class="avatar" href={profile}>
+	<a class="avatar" href="/home/profile/{tweet.name}">
 		<img
 			width="140"
 			height="140"
-			src={tweet.user.avatar}
-			alt={tweet.user.name}
+			src={tweet.avatar}
+			alt={tweet.name}
 		/>
 	</a>
 
 	<div class="tweet-details">
 		<div>
-			<a href={profile} class="user">{tweet.user.name}</a>
-			<span class="handle">{tweet.user.handle}</span>
-			<span class="posted"> · {posted}</span>
+			<a href="/home/profile/{tweet.name}" class="user">
+				{tweet.name}
+			</a>
+			<span class="handle">{tweet.handle}</span>
+			<span class="posted"> · {tweet.posted}</span>
 		</div>
 
 		<div class="tweet">
@@ -63,7 +57,7 @@
 								width="24"
 								height="24"
 								name="like"
-								class={liked ? 'liked' : ''}
+								class={tweet.liked ? 'liked' : ''}
 							/>
 						</div>
 						<span class="count">
@@ -82,7 +76,7 @@
 				</form>
 
 				<a
-					href={permalink}
+					href="/home/profile/{tweet.name}/status/{tweet.url}"
 					class="permalink"
 					title="Permalink"
 				>
