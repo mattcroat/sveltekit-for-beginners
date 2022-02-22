@@ -132,8 +132,11 @@
 		grid-template-columns: min-content 1fr;
 		gap: var(--spacing-16);
 		padding: var(--spacing-16) var(--spacing-24);
-		border-bottom: 1px solid var(--color-border-primary);
 		transition: all 0.3s;
+	}
+
+	.tweet-container:not(:last-child) {
+		border-bottom: 1px solid var(--color-border-primary);
 	}
 
 	.tweet-details {
