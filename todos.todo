@@ -22,7 +22,8 @@ Other:
   ✔ Test site without styles @done(22-02-20 18:59)
   ✔ Define size for SVGs @done(22-02-20 18:59)
   ✔ Clean up SVG markup @done(22-02-21 14:58)
-  ☐ Add store
+  ✔ Prisma utils @done(22-02-22 15:41)
+  ✔ Improve CSS variable names @done(22-02-22 16:07)
 
 Stretch:
   ✔ Shadow endpoints @done(22-02-21 14:38)
