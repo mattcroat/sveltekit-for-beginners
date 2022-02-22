@@ -30,8 +30,7 @@
 		<button
 			class="btn"
 			class:error={charactersLeft < 0}
-			disabled={charactersLeft <= 0 ||
-				charactersLeft === maxCharacters}
+			disabled={charactersLeft <= 0}
 			type="submit"
 		>
 			{charactersLeft === maxCharacters
