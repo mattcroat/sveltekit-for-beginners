@@ -37,20 +37,10 @@
 	</div>
 
 	<nav>
-		<ul>
-			<li class="active">
-				<a href="/">Tweets</a>
-			</li>
-			<li>
-				<a href="/">Tweets & replies</a>
-			</li>
-			<li>
-				<a href="/">Media</a>
-			</li>
-			<li>
-				<a href="/">Likes</a>
-			</li>
-		</ul>
+		<a href="/" class="active">Tweets</a>
+		<a href="/">Tweets & replies</a>
+		<a href="/">Media</a>
+		<a href="/">Likes</a>
 	</nav>
 
 	{#each tweets as tweet (tweet.id)}
@@ -110,16 +100,13 @@
 	}
 
 	nav {
-		border-bottom: 1px solid var(--border-primary);
-	}
-
-	ul {
 		display: flex;
 		justify-content: center;
 		margin-top: var(--spacing-32);
+		border-bottom: 1px solid var(--border-primary);
 	}
 
-	li {
+	a {
 		padding: var(--spacing-16) var(--spacing-32);
 		font-size: var(--font-16);
 		color: var(--text-muted);
@@ -127,7 +114,7 @@
 		transition: all 0.2s;
 	}
 
-	li:hover {
+	a:hover {
 		background-color: var(--link-hover);
 		border-bottom: 4px solid var(--brand);
 	}
