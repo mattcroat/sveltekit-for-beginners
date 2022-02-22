@@ -39,7 +39,7 @@
 	}
 
 	p {
-		color: var(--text-muted);
+		color: var(--color-text-muted);
 	}
 
 	.container {

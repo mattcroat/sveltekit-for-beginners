@@ -24,7 +24,7 @@
 	}
 
 	.feed {
-		border: 1px solid var(--border-primary);
+		border: 1px solid var(--color-border-primary);
 		border-top: none;
 		border-bottom: none;
 	}

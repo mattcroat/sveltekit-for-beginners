@@ -1,8 +1,12 @@
+<script>
+	import { fly } from 'svelte/transition'
+</script>
+
 <svelte:head>
 	<title>Twittr</title>
 </svelte:head>
 
-<main class="container">
+<main class="container" transition:fly={{ x: -100 }}>
 	<section class="hero">
 		<h1 class="title">Twittr 🐦️</h1>
 		<p class="text">Share your hot take with everyone.</p>
@@ -32,7 +36,7 @@
 	}
 
 	.hero {
-		background-color: var(--brand);
+		background-color: var(--color-brand);
 		text-align: center;
 	}
 
@@ -44,7 +48,7 @@
 	.text {
 		padding: var(--spacing-16);
 		transform: rotate(2deg) translateY(-40%);
-		background: var(--background-primary);
+		background: var(--color-bg-primary);
 		font-weight: bold;
 		font-size: var(--font-24);
 		z-index: 1;

@@ -48,7 +48,7 @@
 		align-items: center;
 		gap: var(--spacing-16);
 		padding: var(--spacing-16) var(--spacing-24);
-		border-bottom: 1px solid var(--border-primary);
+		border-bottom: 1px solid var(--color-border-primary);
 	}
 
 	img {
@@ -64,7 +64,7 @@
 	}
 
 	input {
-		color: var(--text-primary);
+		color: var(--color-text-primary);
 		background-color: transparent;
 	}
 

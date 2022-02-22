@@ -124,7 +124,7 @@
 	}
 
 	.tweet-container:hover {
-		background-color: var(--background-secondary);
+		background-color: var(--color-bg-secondary);
 	}
 
 	.tweet-container {
@@ -132,7 +132,7 @@
 		grid-template-columns: min-content 1fr;
 		gap: var(--spacing-16);
 		padding: var(--spacing-16) var(--spacing-24);
-		border-bottom: 1px solid var(--border-primary);
+		border-bottom: 1px solid var(--color-border-primary);
 		transition: all 0.3s;
 	}
 
@@ -153,7 +153,7 @@
 	.handle,
 	.posted {
 		font-size: var(--font-16);
-		color: var(--text-muted);
+		color: var(--color-text-muted);
 	}
 
 	.content {
@@ -169,7 +169,7 @@
 	.actions button,
 	.actions a {
 		padding: 0;
-		color: var(--text-muted);
+		color: var(--color-text-muted);
 		background: none;
 		transition: all 0.3s;
 	}

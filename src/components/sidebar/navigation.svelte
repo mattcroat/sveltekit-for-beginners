@@ -65,7 +65,7 @@
 	}
 
 	li a:hover {
-		background-color: var(--link-hover);
+		background-color: var(--color-link-hover);
 	}
 
 	li.active {
@@ -86,7 +86,7 @@
 	}
 
 	.tweet:hover {
-		background-color: var(--button-primary-active-hover);
+		background-color: var(--color-btn-primary-active-hover);
 	}
 
 	@media (min-width: 1024px) {

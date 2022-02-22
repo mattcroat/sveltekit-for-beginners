@@ -57,7 +57,7 @@
 		display: grid;
 		grid-auto-rows: min-content;
 		gap: var(--spacing-24);
-		border: 1px solid var(--border-primary);
+		border: 1px solid var(--color-border-primary);
 		border-top: none;
 		border-bottom: none;
 	}
@@ -87,7 +87,7 @@
 	}
 
 	.active {
-		background: var(--link-hover);
+		background: var(--color-link-hover);
 	}
 
 	aside {

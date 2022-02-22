@@ -70,7 +70,7 @@
 		height: 120px;
 		margin: 0 var(--spacing-16);
 		border-radius: 50%;
-		border: 4px solid var(--background-primary);
+		border: 4px solid var(--color-bg-primary);
 	}
 
 	img {
@@ -97,31 +97,31 @@
 	}
 
 	.handle {
-		color: var(--text-muted);
+		color: var(--color-text-muted);
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
 		margin-top: var(--spacing-32);
-		border-bottom: 1px solid var(--border-primary);
+		border-bottom: 1px solid var(--color-border-primary);
 	}
 
 	a {
 		padding: var(--spacing-16) var(--spacing-32);
 		font-size: var(--font-16);
-		color: var(--text-muted);
+		color: var(--color-text-muted);
 		border-bottom: 4px solid transparent;
 		transition: all 0.2s;
 	}
 
 	a:hover {
-		background-color: var(--link-hover);
-		border-bottom: 4px solid var(--brand);
+		background-color: var(--color-link-hover);
+		border-bottom: 4px solid var(--color-brand);
 	}
 
 	.active {
 		font-weight: 700;
-		border-bottom: 4px solid var(--brand);
+		border-bottom: 4px solid var(--color-brand);
 	}
 </style>
