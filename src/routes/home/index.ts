@@ -20,7 +20,6 @@ export const get: RequestHandler = async () => {
 	}
 }
 
-// https://kit.svelte.dev/docs/routing#endpoints-body-parsing
 export const post: RequestHandler = async ({ request }) => {
 	await createTweet(request)
 

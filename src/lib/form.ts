@@ -10,11 +10,7 @@ type Enhance = (
 	{ result }?: Parameters
 ) => Destroy
 
-// https://github.com/sveltejs/kit/blob/master/packages/create-svelte/templates/default/src/lib/form.ts
 export const enhance: Enhance = (form, { result } = {}) => {
-	// I'm not sure this is the best solution to
-	// reusing endpoints but since I can't rely on `form.action`
-	// this works for now
 	let invalidatePath: URL
 
 	page.subscribe((path) => {
@@ -33,8 +29,6 @@ export const enhance: Enhance = (form, { result } = {}) => {
 		if (!response.ok) {
 			console.error(await response.text())
 		}
-
-		console.log(form.action)
 
 		// rerun load function
 		const url = new URL(invalidatePath)

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { User } from '@prisma/client'
 
-	import Tweet from '$root/components/tweet/tweet.svelte'
-	import Transition from '$root/components/transition.svelte'
+	import Tweet from '$root/components/tweet.svelte'
 	import type { TweetType } from '$root/types'
 
 	export let profile: User
@@ -13,41 +12,39 @@
 	<title>{profile.name} ({profile.handle})</title>
 </svelte:head>
 
-<Transition>
-	<div class="profile">
-		<img
-			class="banner"
-			src="/profile/{profile.name}/banner.webp"
-			alt="Profile banner"
-		/>
-		<img
-			class="avatar"
-			src={profile.avatar}
-			alt={profile.name}
-		/>
+<div class="profile">
+	<img
+		class="banner"
+		src="/profile/{profile.name}/banner.webp"
+		alt="Profile banner"
+	/>
+	<img
+		class="avatar"
+		src={profile.avatar}
+		alt={profile.name}
+	/>
+</div>
+
+<div class="content">
+	<div class="user">
+		<span class="name">{profile.name}</span>
+		<span class="handle">{profile.handle}</span>
 	</div>
-
-	<div class="content">
-		<div class="user">
-			<span class="name">{profile.name}</span>
-			<span class="handle">{profile.handle}</span>
-		</div>
-		<div class="about">
-			<span>{profile.about}</span>
-		</div>
+	<div class="about">
+		<span>{profile.about}</span>
 	</div>
+</div>
 
-	<nav>
-		<a href="/" class="active">Tweets</a>
-		<a href="/">Tweets & replies</a>
-		<a href="/">Media</a>
-		<a href="/">Likes</a>
-	</nav>
+<nav>
+	<a href="/" class="active">Tweets</a>
+	<a href="/">Tweets & replies</a>
+	<a href="/">Media</a>
+	<a href="/">Likes</a>
+</nav>
 
-	{#each tweets as tweet (tweet.id)}
-		<Tweet {tweet} />
-	{/each}
-</Transition>
+{#each tweets as tweet (tweet.id)}
+	<Tweet {tweet} />
+{/each}
 
 <style>
 	.profile {

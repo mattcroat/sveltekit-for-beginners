@@ -6,7 +6,11 @@
 	<title>Twittr</title>
 </svelte:head>
 
-<main class="container" transition:fly={{ x: -100 }}>
+<main
+	class="container"
+	in:fly={{ x: -100, duration: 250, delay: 300 }}
+	out:fly={{ x: -100, duration: 250 }}
+>
 	<section class="hero">
 		<h1 class="title">Twittr 🐦️</h1>
 		<p class="text">Share your hot take with everyone.</p>
@@ -21,12 +25,6 @@
 	.container {
 		height: 100vh;
 		display: grid;
-	}
-
-	@media (min-width: 1024px) {
-		.container {
-			grid-template-columns: repeat(2, 1fr);
-		}
 	}
 
 	.hero,
@@ -52,5 +50,11 @@
 		font-weight: bold;
 		font-size: var(--font-24);
 		z-index: 1;
+	}
+
+	@media (min-width: 1024px) {
+		.container {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 </style>

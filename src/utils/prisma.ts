@@ -6,6 +6,7 @@ export async function getTweets() {
 		include: { user: true },
 		orderBy: { posted: 'desc' }
 	})
+
 	const likedTweets = await getLikedTweets()
 
 	return tweets.map((tweet) => {
@@ -30,6 +31,7 @@ export async function getTweet(
 		where: { url: params.tweetId },
 		include: { user: true }
 	})
+
 	const likedTweets = await getLikedTweets()
 
 	return {
@@ -50,9 +52,11 @@ export async function getLikedTweets() {
 		where: { userId: 1 },
 		select: { tweetId: true }
 	})
+
 	const likedTweets = Object.keys(liked).map(
 		(key) => liked[key].tweetId
 	)
+
 	return likedTweets
 }
 
@@ -68,7 +72,7 @@ export async function createTweet(request: Request) {
 		}
 	}
 
-	// add to database, user is hardcoded
+	// you can get the user from the session
 	await prisma.tweet.create({
 		data: {
 			posted: new Date(),
@@ -99,7 +103,7 @@ export async function likeTweet(request: Request) {
 		// if tweet is already liked unlike it
 		await prisma.liked.delete({ where: { tweetId: id } })
 
-		// also update the likes count
+		// update the likes count
 		const count = await prisma.tweet.findUnique({
 			where: { id },
 			select: { likes: true }
@@ -144,18 +148,19 @@ export async function getUserProfile(
 	const profile = await prisma.user.findFirst({
 		where: { name: params.user }
 	})
-	// alternatively use fetch on the server
+
 	const tweets = await prisma.tweet.findMany({
+		where: { user: { id: 1 } },
 		include: { user: true },
 		orderBy: { posted: 'desc' }
 	})
+
 	const likedTweets = await getLikedTweets()
 
 	if (!profile || !tweets || tweets.length === 0) {
 		return { status: 404 }
 	}
 
-	// we can design the shape of the data
 	const userTweets = tweets.map((tweet) => {
 		return {
 			id: tweet.id,

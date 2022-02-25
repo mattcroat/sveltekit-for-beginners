@@ -17,7 +17,7 @@
 <div class="error">
 	<h1>{title}</h1>
 
-	<img src="/rick-astley.webp" alt="Rick Astley dancing" />
+	<img src="/dancing.webp" alt="Person dancing" />
 </div>
 
 <style>

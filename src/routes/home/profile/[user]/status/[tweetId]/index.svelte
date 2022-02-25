@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Tweet from '$root/components/tweet/tweet.svelte'
+	import Tweet from '$root/components/tweet.svelte'
 	import type { TweetType } from '$root/types'
 
 	export let tweet: TweetType

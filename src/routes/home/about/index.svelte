@@ -1,7 +1,10 @@
 <script context="module" lang="ts">
-	// https://kit.svelte.dev/docs/page-options
-	export const hydrate = false
-	export const router = true
+	import { dev } from '$app/env'
+
+	// load JavaScript in development for hot module replacement
+	export const hydrate = dev
+
+	// prerender static page in production
 	export const prerender = true
 </script>
 
@@ -16,19 +19,6 @@
 			Lorem ipsum dolor sit amet consectetur adipisicing
 			elit. Voluptatibus eveniet quos impedit cumque,
 			deleniti aspernatur atque vitae iusto ratione nam qui.
-		</p>
-		<p>
-			Qui, exercitationem magnam facilis ex cupiditate sed!
-			Vitae, veniam?
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing
-			elit. Quibusdam, modi!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing
-			elit. Excepturi mollitia temporibus sed nihil iure?
-			Beatae magnam molestias impedit nobis accusantium.
 		</p>
 	</div>
 </div>

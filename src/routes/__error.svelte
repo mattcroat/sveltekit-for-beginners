@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script context="module" lang="ts">
 	import type { ErrorLoad } from '@sveltejs/kit'
 
 	export const load: ErrorLoad = ({ error, status }) => {
@@ -16,10 +16,7 @@
 
 <div class="error">
 	<h1>{title}</h1>
-	<img
-		src="/error.webp"
-		alt="Cat looking at a plushie of itself"
-	/>
+	<img src="/error.webp" alt="Surprised cat" />
 </div>
 
 <style>
