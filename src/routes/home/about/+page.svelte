@@ -1,11 +1,13 @@
 <script context="module" lang="ts">
-	import { dev } from '$app/env'
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-	// load JavaScript in development for hot module replacement
-	export const hydrate = dev
+	// import { dev } from '$app/env'
 
-	// prerender static page in production
-	export const prerender = true
+	// // load JavaScript in development for hot module replacement
+	// export const hydrate = dev
+
+	// // prerender static page in production
+	// export const prerender = true
 </script>
 
 <svelte:head>

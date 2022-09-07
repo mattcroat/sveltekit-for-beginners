@@ -1,4 +1,6 @@
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import Compose from '$root/components/compose.svelte'
 	import Tweet from '$root/components/tweet.svelte'
 	import type { TweetType } from '$root/types'
